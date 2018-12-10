@@ -13,6 +13,10 @@ class LightsView: UIView
     var rows = 1
     var columns = 1
     
+    /// All the little light views are (re)created and positioned
+    /// every time the view is laid out (including a rotation)
+    /// No math has to be done when drawing the light
+    
     override func layoutSubviews()
     {
         for subView in subviews {
@@ -37,6 +41,9 @@ class LightsView: UIView
         }
     }
     
+    /// Turns all the lights on the perimeter
+    /// to the specified color
+    
     func frameIn(_ color: UIColor)
     {
         for col in 0..<columns {
@@ -49,6 +56,8 @@ class LightsView: UIView
         }
     }
     
+    /// Turns all the lights off
+    
     func blackOut()
     {
         for col in 0..<columns {
@@ -57,6 +66,8 @@ class LightsView: UIView
             }
         }
     }
+    
+    /// Sets a light at the given coords to the specified color
     
     func setColor(color: UIColor, row: Int, column: Int)
     {

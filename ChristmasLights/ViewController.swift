@@ -84,7 +84,7 @@ class ViewController: UIViewController
     {
         currentRow = 0
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.03,
+        timer = Timer.scheduledTimer(timeInterval: 0.06,
                              target: self,
                              selector: #selector(self.drawRows),
                              userInfo: colors,
@@ -114,7 +114,7 @@ class ViewController: UIViewController
     {
         currentCol = 0
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.05,
+        timer = Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
                              selector: #selector(self.drawStripes),
                              userInfo: colors,
