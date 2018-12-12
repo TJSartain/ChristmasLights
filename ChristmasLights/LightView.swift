@@ -14,6 +14,10 @@ class LightView: UIView
     
     var isOn = false
     
+    /// If drawn, lower opacity when in the back
+    
+    var isInBack = false
+    
     /// When the color is changed, a redraw is initiated
     /// If the color is black, the light is turned off
     
@@ -63,7 +67,7 @@ class LightView: UIView
             star.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
             star.apply(CGAffineTransform(rotationAngle: angle))
             star.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
-            color.setFill()
+            color.withAlphaComponent(isInBack ? 0.25 : 1).setFill()
             star.fill()
         }
     }

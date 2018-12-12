@@ -15,6 +15,7 @@
 		004B2EC221B49D0B005EAF9D /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC121B49D0B005EAF9D /* LightsView.swift */; };
 		004B2EC621B4A2A3005EAF9D /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC521B4A2A3005EAF9D /* Drawing.swift */; };
 		004B2EC821BA05EB005EAF9D /* LightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC721BA05EB005EAF9D /* LightView.swift */; };
+		004B2EEC21BF44F6005EAF9D /* OrthoGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */; };
 		00DE77DB21BB2630004354C3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE77DA21BB2630004354C3 /* Colors.swift */; };
 		00DE77DD21BB3193004354C3 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE77DC21BB3193004354C3 /* Snake.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		004B2EC121B49D0B005EAF9D /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
 		004B2EC521B4A2A3005EAF9D /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		004B2EC721BA05EB005EAF9D /* LightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightView.swift; sourceTree = "<group>"; };
+		004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrthoGraphics.swift; sourceTree = "<group>"; };
 		00DE77DA21BB2630004354C3 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		00DE77DC21BB3193004354C3 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				00DE77DC21BB3193004354C3 /* Snake.swift */,
 				00DE77DA21BB2630004354C3 /* Colors.swift */,
 				004B2EC521B4A2A3005EAF9D /* Drawing.swift */,
+				004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */,
 				004B2EA321B496F5005EAF9D /* Main.storyboard */,
 				004B2EA621B496F6005EAF9D /* Assets.xcassets */,
 				004B2EA821B496F6005EAF9D /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				00DE77DB21BB2630004354C3 /* Colors.swift in Sources */,
 				004B2EC221B49D0B005EAF9D /* LightsView.swift in Sources */,
 				004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */,
+				004B2EEC21BF44F6005EAF9D /* OrthoGraphics.swift in Sources */,
 				004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */,
 				004B2EC621B4A2A3005EAF9D /* Drawing.swift in Sources */,
 				00DE77DD21BB3193004354C3 /* Snake.swift in Sources */,

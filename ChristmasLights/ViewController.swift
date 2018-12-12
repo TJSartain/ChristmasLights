@@ -13,8 +13,8 @@ class ViewController: UIViewController
     @IBOutlet weak var lightsView: LightsView!
     
     let colors = [Malibu, SuperNova, Pizazz, RadicalRed, AzureRadiance, Emerald, RedOrange]
-    let rows = 24
-    let columns = 10
+    let rows = 32
+    let columns = 32
 
     var timer = Timer()
     var currentRow = 0
@@ -39,7 +39,7 @@ class ViewController: UIViewController
         } else if sender.selectedSegmentIndex == 1 {
             doRows()
         } else if sender.selectedSegmentIndex == 2 {
-            doStripes()
+            doFatSwirl()
         } else { // sender.selectedSegmentIndex == 3
             doSnake()
         }
@@ -47,7 +47,7 @@ class ViewController: UIViewController
     
     func onFrame(_ loc: Location) -> Bool
     {
-        return loc.row == 0 || loc.column == 0 || loc.row == rows-1 || loc.column == columns-1
+        return loc.row == 0 || loc.column == 0 || loc.row == rows-1 || loc.column == columns/2
     }
 
     // MARK: - Random -
@@ -104,23 +104,23 @@ class ViewController: UIViewController
     }
     
     // MARK: - Stripes -
-
+    
     func doStripes()
     {
         doStripes([RadicalRed, RadicalRed, Emerald, RadicalRed, RadicalRed])
     }
-
+    
     func doStripes(_ colors: [UIColor])
     {
         currentCol = 0
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.1,
-                             target: self,
-                             selector: #selector(self.drawStripes),
-                             userInfo: colors,
-                             repeats: true)
+                                     target: self,
+                                     selector: #selector(self.drawStripes),
+                                     userInfo: colors,
+                                     repeats: true)
     }
-
+    
     @objc func drawStripes(timer: Timer)
     {
         let c = timer.userInfo as! [UIColor]
@@ -132,8 +132,40 @@ class ViewController: UIViewController
         }
         currentCol = (currentCol + 1) % columns
     }
+    
+    // MARK: - Fat Swirl -
+    
+    func doFatSwirl()
+    {
+        doFatSwirl([RadicalRed, .white])
+    }
+    
+    func doFatSwirl(_ colors: [UIColor])
+    {
+        currentRow = 0
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.03,
+                                     target: self,
+                                     selector: #selector(self.drawFatSwirl),
+                                     userInfo: colors,
+                                     repeats: true)
+    }
+    
+    @objc func drawFatSwirl(timer: Timer)
+    {
+        let c = timer.userInfo as! [UIColor]
+        for col in 0..<columns {
+            for row in 0..<rows {
+                let color = (row + currentRow + col) % columns < columns / 2 ? c[0] : c[1]
+                lightsView.setColor(color: color, row: row, column: col)
+            }
+        }
+        currentRow = (currentRow + 1) % rows
+    }
 
     // MARK: - Snake -
+    
+    let placeholderColor = UIColor.darkGray.withAlphaComponent(0.25)
 
     func doSnake()
     {
@@ -163,10 +195,10 @@ class ViewController: UIViewController
             let pct = CGFloat(snake.segments.count - i) / CGFloat(snake.segments.count) * 0.75 + 0.25
             snake.segments[i].color = snake.segments[i].color.withAlphaComponent(pct)
         }
-        lightsView.blackOut()
+        lightsView.oneColor(placeholderColor)
         lightsView.frameIn(.white)
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.1,
+        timer = Timer.scheduledTimer(timeInterval: 0.2,
                                      target: self,
                                      selector: #selector(self.drawSnake),
                                      userInfo: snake,
@@ -184,7 +216,7 @@ class ViewController: UIViewController
                                     row: segment.location.row,
                                     column: segment.location.column)
             }
-            lightsView.setColor(color: onFrame((lastRow, lastColumn)) ? .white : .black,
+            lightsView.setColor(color: onFrame((lastRow, lastColumn)) ? .white : placeholderColor,
                                 row: lastRow,
                                 column: lastColumn)
         } else {
