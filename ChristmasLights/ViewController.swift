@@ -13,8 +13,8 @@ class ViewController: UIViewController
     @IBOutlet weak var lightsView: LightsView!
     
     let colors = [Malibu, SuperNova, Pizazz, RadicalRed, AzureRadiance, Emerald, RedOrange]
-    let rows = 32
-    let columns = 32
+    let rows = 20
+    let columns = 20
 
     var timer = Timer()
     var currentRow = 0
@@ -39,9 +39,11 @@ class ViewController: UIViewController
         } else if sender.selectedSegmentIndex == 1 {
             doRows()
         } else if sender.selectedSegmentIndex == 2 {
-            doFatSwirl()
-        } else { // sender.selectedSegmentIndex == 3
+            doStripes()
+        } else if sender.selectedSegmentIndex == 3 {
             doSnake()
+        } else { // sender.selectedSegmentIndex == 4
+            doFatSwirl()
         }
     }
     
@@ -137,7 +139,7 @@ class ViewController: UIViewController
     
     func doFatSwirl()
     {
-        doFatSwirl([RadicalRed, .white])
+        doFatSwirl([RadicalRed, Emerald])
     }
     
     func doFatSwirl(_ colors: [UIColor])

@@ -30,14 +30,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4C-ve-H33">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-Ph-7wa">
-                                        <rect key="frame" x="63" y="8" width="250" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-Ph-7wa">
+                                        <rect key="frame" x="20" y="8" width="335" height="29"/>
                                         <segments>
                                             <segment title="Random"/>
                                             <segment title="Rows"/>
                                             <segment title="Columns"/>
                                             <segment title="Snake"/>
+                                            <segment title="Fat Swirl"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -53,6 +53,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="539-BO-jhT"/>
+                                    <constraint firstItem="OAh-Ph-7wa" firstAttribute="centerY" secondItem="u4C-ve-H33" secondAttribute="centerY" id="FcE-Bo-rXG"/>
+                                    <constraint firstAttribute="trailing" secondItem="OAh-Ph-7wa" secondAttribute="trailing" constant="20" id="J0R-GV-MOT"/>
+                                    <constraint firstItem="OAh-Ph-7wa" firstAttribute="leading" secondItem="u4C-ve-H33" secondAttribute="leading" constant="20" id="YuN-Oj-u2b"/>
                                 </constraints>
                             </view>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fv7-TE-YT3">
