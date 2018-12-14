@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002EA18E21C44CA600BAA3B3 /* DoSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18D21C44CA600BAA3B3 /* DoSnake.swift */; };
+		002EA19021C44CB100BAA3B3 /* DoFatSwirl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */; };
+		002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19121C44CD100BAA3B3 /* DoRows.swift */; };
+		002EA19421C44CDC00BAA3B3 /* DoRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19321C44CDC00BAA3B3 /* DoRandom.swift */; };
+		002EA19621C44CE500BAA3B3 /* DoColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19521C44CE500BAA3B3 /* DoColumns.swift */; };
+		002EA19921C460F100BAA3B3 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19821C460F100BAA3B3 /* Pattern.swift */; };
 		004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2E9F21B496F5005EAF9D /* AppDelegate.swift */; };
 		004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EA121B496F5005EAF9D /* ViewController.swift */; };
 		004B2EA521B496F5005EAF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA321B496F5005EAF9D /* Main.storyboard */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002EA18D21C44CA600BAA3B3 /* DoSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSnake.swift; sourceTree = "<group>"; };
+		002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoFatSwirl.swift; sourceTree = "<group>"; };
+		002EA19121C44CD100BAA3B3 /* DoRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoRows.swift; sourceTree = "<group>"; };
+		002EA19321C44CDC00BAA3B3 /* DoRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoRandom.swift; sourceTree = "<group>"; };
+		002EA19521C44CE500BAA3B3 /* DoColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoColumns.swift; sourceTree = "<group>"; };
+		002EA19821C460F100BAA3B3 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		004B2E9C21B496F5005EAF9D /* ChristmasLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChristmasLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004B2E9F21B496F5005EAF9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004B2EA121B496F5005EAF9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002EA19721C44D0B00BAA3B3 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				002EA19821C460F100BAA3B3 /* Pattern.swift */,
+				002EA18D21C44CA600BAA3B3 /* DoSnake.swift */,
+				002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */,
+				002EA19121C44CD100BAA3B3 /* DoRows.swift */,
+				002EA19321C44CDC00BAA3B3 /* DoRandom.swift */,
+				002EA19521C44CE500BAA3B3 /* DoColumns.swift */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
 		004B2E9321B496F5005EAF9D = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +96,7 @@
 				004B2EC121B49D0B005EAF9D /* LightsView.swift */,
 				004B2EC721BA05EB005EAF9D /* LightView.swift */,
 				00DE77DC21BB3193004354C3 /* Snake.swift */,
+				002EA19721C44D0B00BAA3B3 /* Patterns */,
 				00DE77DA21BB2630004354C3 /* Colors.swift */,
 				004B2EC521B4A2A3005EAF9D /* Drawing.swift */,
 				004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */,
@@ -154,13 +180,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DE77DB21BB2630004354C3 /* Colors.swift in Sources */,
+				002EA19421C44CDC00BAA3B3 /* DoRandom.swift in Sources */,
 				004B2EC221B49D0B005EAF9D /* LightsView.swift in Sources */,
 				004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */,
 				004B2EEC21BF44F6005EAF9D /* OrthoGraphics.swift in Sources */,
+				002EA19021C44CB100BAA3B3 /* DoFatSwirl.swift in Sources */,
 				004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */,
 				004B2EC621B4A2A3005EAF9D /* Drawing.swift in Sources */,
 				00DE77DD21BB3193004354C3 /* Snake.swift in Sources */,
+				002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */,
 				004B2EC821BA05EB005EAF9D /* LightView.swift in Sources */,
+				002EA19621C44CE500BAA3B3 /* DoColumns.swift in Sources */,
+				002EA19921C460F100BAA3B3 /* Pattern.swift in Sources */,
+				002EA18E21C44CA600BAA3B3 /* DoSnake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

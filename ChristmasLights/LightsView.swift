@@ -57,7 +57,7 @@ class LightsView: UIView
         {
             let radius = CGFloat(row) / 2
             for col in 0..<columns {
-                let angle = 2.0 * CGFloat.pi * CGFloat(col) / CGFloat(columns)
+                let angle = 2 * CGFloat.pi * CGFloat(col) / CGFloat(columns)
                 let x = cos(angle) * radius
                 let z = sin(angle) * radius
                 let projection = og.orthoProjection(x, CGFloat(row) * 1.5, z)

@@ -19,7 +19,7 @@ class LightView: UIView
     var isInBack = false
     
     /// When the color is changed, a redraw is initiated
-    /// If the color is black, the light is turned off
+    /// If the color is black, the light is "turned off"
     
     var color = UIColor.white {
         didSet {
