@@ -12,6 +12,7 @@ class Pattern: NSObject
 {
     var lightsView: LightsView
     var timer = Timer()
+    var info: Any?
 
     init(using view: LightsView)
     {
@@ -25,16 +26,17 @@ class Pattern: NSObject
 
     func start(every interval: TimeInterval, with info: Any?)
     {
+        self.info = info
         timer = Timer.scheduledTimer(timeInterval: interval,
                                      target: self,
                                      selector: #selector(self.draw),
-                                     userInfo: info,
+                                     userInfo: nil,
                                      repeats: true)
     }
 
     @objc func draw(timer: Timer)
     {
-
+        // override for custom drawing
     }
 
     func stop()

@@ -107,7 +107,7 @@ class LightsView: UIView
         }
     }
     
-     func layoutSubviews2()
+     func originalLayout()
     {
         for subView in subviews {
             subView.removeFromSuperview()

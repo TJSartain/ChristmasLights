@@ -29,7 +29,7 @@ class SnakePattern: Pattern
                           SnakeLight(color: Emerald,    location: (8, 0)),
                           SnakeLight(color: Emerald,    location: (9, 0))]
         snake.heading = (1, 1)
-        start(every: 0.2, with: snake)
+        start(every: 0.1, with: snake)
     }
     
     override func start(every interval: TimeInterval, with info: Any?)
@@ -40,13 +40,13 @@ class SnakePattern: Pattern
             snake.segments[i].color = snake.segments[i].color.withAlphaComponent(pct)
         }
         lightsView.oneColor(placeholderColor)
-        lightsView.frameIn(.white)
+        lightsView.frameIn(.darkGray)
         super.start(every: interval, with: snake)
     }
     
     override func draw(timer: Timer)
     {
-        let snake = timer.userInfo as! Snake
+        let snake = info as! Snake
         let lastRow = snake.segments.last!.location.row
         let lastColumn = snake.segments.last!.location.column
         if snake.move(bounds: (rows, columns))
@@ -57,7 +57,7 @@ class SnakePattern: Pattern
                                     row: segment.location.row,
                                     column: segment.location.column)
             }
-            lightsView.setColor(color: onFrame((lastRow, lastColumn)) ? .white : placeholderColor,
+            lightsView.setColor(color: onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
                                 row: lastRow,
                                 column: lastColumn)
         } else {

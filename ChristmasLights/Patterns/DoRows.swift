@@ -25,7 +25,7 @@ class RowsPattern: Pattern
 
     override func draw(timer: Timer)
     {
-        let colors = timer.userInfo as! [UIColor]
+        let colors = info as! [UIColor]
         for row in 0..<lightsView.rows
         {
             let color = colors[((row + currentRow) % lightsView.rows) % colors.count]

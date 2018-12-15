@@ -8,7 +8,7 @@
 
 import UIKit
 
-let placeholderColor = UIColor.white.withAlphaComponent(0.1)
+let placeholderColor = UIColor.white.withAlphaComponent(0.15)
 var timer = Timer()
 let rows = 35
 let columns = 11
@@ -42,7 +42,8 @@ class ViewController: UIViewController
                     RowsPattern(using: lightsView),
                     ColumnsPattern(using: lightsView),
                     SnakePattern(using: lightsView),
-                    FatSwirlPattern(using: lightsView)]
+                    FatSwirlPattern(using: lightsView),
+                    ColorFade(using: lightsView)]
 
         patterns[currentPattern].start()
     }

@@ -19,10 +19,38 @@ let Emerald         = UIColor.fromHex("#44DB5E")
 let RedOrange       = UIColor.fromHex("#FF3824")
 let Manatee         = UIColor.fromHex("#8E8E93")
 
+func rgb(_ c: (CGFloat, CGFloat, CGFloat)) -> UIColor
+{
+    return rgb(CGFloat(c.0)/255, CGFloat(c.1)/255, CGFloat(c.2)/255)
+}
+
+func rgb(_ r: Int, _ g: Int, _ b: Int) -> UIColor
+{
+    return rgb(CGFloat(r)/255, CGFloat(g)/255, CGFloat(b)/255)
+}
+
+func rgb(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor
+{
+    return UIColor(red: r, green: g, blue: b, alpha: 1)
+}
+
 // MARK: - Color Extensions -
 
 extension UIColor
 {
+    static func colorCycle(n: Int) -> [UIColor]
+    {
+        let speed = 100 / CGFloat(n)
+        let redCycle   = Cycle(spd: speed, strt: 100/3.0, lo: 0, hi: 1, stl: .RAMP)
+        let greenCycle = Cycle(spd: speed, strt: 0,       lo: 0, hi: 1, stl: .RAMP)
+        let blueCycle  = Cycle(spd: speed, strt: 200/3.0, lo: 0, hi: 1, stl: .RAMP)
+        var colors = [UIColor]()
+        for _ in 0..<n {
+            colors.append(rgb(redCycle.next(), greenCycle.next(), blueCycle.next()))
+        }
+        return colors
+    }
+    
     static func fromHex(_ h: String) -> UIColor
     {
         var hex = h.replace("#", with: "")

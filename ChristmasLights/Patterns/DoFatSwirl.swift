@@ -25,7 +25,7 @@ class FatSwirlPattern: Pattern
     
     override func draw(timer: Timer)
     {
-        let colors = timer.userInfo as! [UIColor]
+        let colors = info as! [UIColor]
         for col in 0..<lightsView.columns
         {
             for row in 0..<lightsView.rows

@@ -37,7 +37,8 @@
                                             <segment title="Rows"/>
                                             <segment title="Columns"/>
                                             <segment title="Snake"/>
-                                            <segment title="Fat Swirl"/>
+                                            <segment title="Swirl"/>
+                                            <segment title="Fade"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>

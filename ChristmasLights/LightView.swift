@@ -63,10 +63,10 @@ class LightView: UIView
     {
         if isOn
         {
-            let angle = CGFloat.random(in: 0..<2*CGFloat.pi)
-            star.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
-            star.apply(CGAffineTransform(rotationAngle: angle))
-            star.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
+//            let angle = CGFloat.random(in: 0..<2*CGFloat.pi)
+//            star.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
+//            star.apply(CGAffineTransform(rotationAngle: angle))
+//            star.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
             var alpha: CGFloat = 1
             color.getWhite(nil, alpha: &alpha)
             color.withAlphaComponent(isInBack ? 0.25 * alpha : alpha).setFill()
