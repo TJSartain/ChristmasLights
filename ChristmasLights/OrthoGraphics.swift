@@ -26,7 +26,7 @@ class OrthoGraphics
         cosTsinP = 0
         sinTcosP = 0
         sinTsinP = 0
-        planeToEye = 120
+        planeToEye = 50
         planeToObj = 0
         azimuth = 180 // in degrees
         elevation = 0 // in degrees

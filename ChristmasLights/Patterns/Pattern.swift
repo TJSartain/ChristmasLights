@@ -23,7 +23,7 @@ class Pattern: NSObject
         start(every: 1, with: "")
     }
 
-    func start(every interval: TimeInterval, with info: Any)
+    func start(every interval: TimeInterval, with info: Any?)
     {
         timer = Timer.scheduledTimer(timeInterval: interval,
                                      target: self,

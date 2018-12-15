@@ -17,7 +17,7 @@ class RowsPattern: Pattern
         start(every: 0.06, with: [RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, Emerald, RadicalRed, RadicalRed])
     }
 
-    override func start(every interval: TimeInterval, with info: Any)
+    override func start(every interval: TimeInterval, with info: Any?)
     {
         currentRow = 0
         super.start(every: interval, with: info)

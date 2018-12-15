@@ -25,7 +25,7 @@ extension UIColor
 {
     static func fromHex(_ h: String) -> UIColor
     {
-        var hex = h.replace(this: "#", that: "")
+        var hex = h.replace("#", with: "")
         if hex.count == 1 {
             hex = hex + hex + hex + hex + hex + hex
         } else if hex.count == 2 {
@@ -55,7 +55,7 @@ extension UIColor
 
 extension String
 {
-    func replace(this: String, that: String) -> String
+    func replace(_ this: String, with that: String) -> String
     {
         return self.replacingOccurrences(of: this, with: that)
     }

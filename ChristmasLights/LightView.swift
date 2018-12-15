@@ -67,7 +67,9 @@ class LightView: UIView
             star.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
             star.apply(CGAffineTransform(rotationAngle: angle))
             star.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
-            color.withAlphaComponent(isInBack ? 0.25 : 1).setFill()
+            var alpha: CGFloat = 1
+            color.getWhite(nil, alpha: &alpha)
+            color.withAlphaComponent(isInBack ? 0.25 * alpha : alpha).setFill()
             star.fill()
         }
     }

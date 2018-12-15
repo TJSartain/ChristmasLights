@@ -13,6 +13,7 @@ class LightsView: UIView
     var rows = 1
     var columns = 1
     let og = OrthoGraphics()
+    var wrapAround = true
     
     /// All the little light views are (re)created and positioned
     /// every time the view is laid out (including a rotation)
@@ -43,6 +44,38 @@ class LightsView: UIView
     
     override func layoutSubviews()
     {
+        radialLayout()
+    }
+    
+    func radialLayout()
+    {
+        let h = frame.width / CGFloat(columns)
+        let v = frame.height / CGFloat(rows)
+        let size: CGFloat = 2 * sqrt(h*h + v*v) / 5 // "average" divided by 5
+        let sweep = 2 * asin((frame.width - h) / ((v - 1) * CGFloat(rows)) / 2)
+        for row in 0..<rows
+        {
+            let radius = v * (CGFloat(row) + 0.5)
+            for col in 0..<columns
+            {
+                let angle = CGFloat.pi/2 - CGFloat(col) * sweep / CGFloat(columns - 1) + sweep / 2
+                let x = frame.width / 2 + cos(angle) * radius
+                let y = sin(angle) * radius
+                print(row, radius, col, angle, x, y)
+                
+                let lightView = LightView(frame: CGRect(x: x - h / 2,
+                                                        y: y - v / 2,
+                                                        width: h,
+                                                        height: v))
+                lightView.size = size
+                lightView.tag = row * 1000 + col + 1
+                addSubview(lightView)
+            }
+        }
+    }
+    
+    func orthoLayout()
+    {
         for subView in subviews {
             subView.removeFromSuperview()
         }
@@ -55,12 +88,12 @@ class LightsView: UIView
         
         for row in 0..<rows
         {
-            let radius = CGFloat(row) / 2
+            let radius = CGFloat(row) / 5 /////// CGFloat(row) / 2
             for col in 0..<columns {
                 let angle = 2 * CGFloat.pi * CGFloat(col) / CGFloat(columns)
                 let x = cos(angle) * radius
                 let z = sin(angle) * radius
-                let projection = og.orthoProjection(x, CGFloat(row) * 1.5, z)
+                let projection = og.orthoProjection(x, CGFloat(row) * 0.75, z) /////////// CGFloat(row) * 1.5
                 let pt = projection.0
                 
                 let lightView = LightView(frame: CGRect(x: pt.x,
@@ -109,7 +142,7 @@ class LightsView: UIView
         }
         for row in 1..<rows-1 {
             setColor(color: color, row: row, column: 0)
-            setColor(color: color, row: row, column: columns/2)
+            setColor(color: color, row: row, column: columns-1)
         }
     }
     
