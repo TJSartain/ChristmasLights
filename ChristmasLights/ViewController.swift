@@ -11,10 +11,10 @@ import UIKit
 typealias Location = (row: Int, column: Int)
 
 struct Global {
-    static var timer: Timer!
+    static var timer: Timer! // why do I have to put this in a struct but not the 2 vars below ???
 }
 
-var placeholderColor = UIColor.white.withAlphaComponent(0.15)
+var placeholderColor = rgb(31, 31, 31)
 var net: Net!
 
 class ViewController: UIViewController
@@ -36,7 +36,7 @@ class ViewController: UIViewController
         net.columns = 11
         net.backgroundColor = .black
 
-        currentPattern = RandomPattern("Random")
+        currentPattern = Pattern.allPatterns()[0]
         currentPattern.start()
     }
 

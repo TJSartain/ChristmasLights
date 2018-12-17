@@ -64,8 +64,8 @@ class ContainerViewController: UIViewController {
     
     centerNavigationController.didMove(toParent: self)
     
-    let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-    centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
+//    let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+//    centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
   }
 }
 
@@ -214,7 +214,7 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
       if let _ = leftViewController,
         let rview = recognizer.view {
         // animate the side panel open or closed based on whether the view has moved more or less than halfway
-        let hasMovedGreaterThanHalfway = rview.center.x > view.bounds.size.width
+        let hasMovedGreaterThanHalfway = rview.center.x > view.bounds.size.width / 2
         animateLeftPanel(shouldExpand: hasMovedGreaterThanHalfway)
         
       }

@@ -39,11 +39,11 @@ class StarryNight: Pattern
     func randomReplace()
     {
         let i = Int.random(in: 0..<starField.count)
-        net.turnOffBulb(starField[i])
+        net.setColor(color: placeholderColor, loc: starField[i])
         let x = Int.random(in: 0..<net.columns)
         let y = Int.random(in: 0..<net.rows)
-        net.setColor(color: .white, row: y, column: x)
         starField[i] = (y, x)
+        net.setColor(color: .white, loc: starField[i])
     }
 
 }

@@ -178,12 +178,17 @@ class Net: UIView
     }
     
     /// Sets a light at the given coords to the specified color
-    
+
     func setColor(color: UIColor, row: Int, column: Int)
     {
         if let bulb = viewWithTag(row * 1000 + column + 1) as? Bulb {
             bulb.color = color
         }
+    }
+
+    func setColor(color: UIColor, loc: Location)
+    {
+        setColor(color: color, row: loc.row, column: loc.column)
     }
 
     override init(frame: CGRect)
