@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RowColumnDazzle: Pattern
+class RazzleDazzle: Pattern
 {
     var rowColor = Emerald
     var columnColor = Malibu

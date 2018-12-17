@@ -52,8 +52,9 @@ class Pattern: NSObject
             FatSwirlPattern("Fat Swirl"),
             RowsPattern("Rows"),
             ColumnsPattern("Columns"),
-            RowColumnDazzle("Razzle Dazzle"),
+            RazzleDazzle("Razzle Dazzle"),
             StarryNight("Starry Night"),
+            SnowFall("Snow Fall"),
             Spiral("Spiral"),
             SnakePattern("Snake")
         ]

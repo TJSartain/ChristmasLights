@@ -32,12 +32,6 @@ class StarryNight: Pattern
 
     override func draw(timer: Timer)
     {
-        randomReplace()
-//        randomReplace()
-    }
-
-    func randomReplace()
-    {
         let i = Int.random(in: 0..<starField.count)
         net.setColor(color: placeholderColor, loc: starField[i])
         let x = Int.random(in: 0..<net.columns)
@@ -45,5 +39,4 @@ class StarryNight: Pattern
         starField[i] = (y, x)
         net.setColor(color: .white, loc: starField[i])
     }
-
 }

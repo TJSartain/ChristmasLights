@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		001CA0B421C58DE60063CE04 /* ColorFade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B321C58DE60063CE04 /* ColorFade.swift */; };
 		001CA0B621C58E300063CE04 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B521C58E300063CE04 /* Cycle.swift */; };
-		001CA0B821C72B1D0063CE04 /* RowColumnDazzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */; };
+		001CA0B821C72B1D0063CE04 /* RazzleDazzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B721C72B1D0063CE04 /* RazzleDazzle.swift */; };
 		002EA18E21C44CA600BAA3B3 /* DoSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18D21C44CA600BAA3B3 /* DoSnake.swift */; };
 		002EA19021C44CB100BAA3B3 /* FatSwirl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */; };
 		002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19121C44CD100BAA3B3 /* DoRows.swift */; };
@@ -22,6 +22,7 @@
 		002EA1A521C8286C00BAA3B3 /* CenterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A021C8286C00BAA3B3 /* CenterViewControllerDelegate.swift */; };
 		002EA1A621C8286C00BAA3B3 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */; };
 		002EA1A821C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */; };
+		002EA1AA21C8600400BAA3B3 /* SnowFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A921C8600400BAA3B3 /* SnowFall.swift */; };
 		004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2E9F21B496F5005EAF9D /* AppDelegate.swift */; };
 		004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EA121B496F5005EAF9D /* ViewController.swift */; };
 		004B2EA521B496F5005EAF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA321B496F5005EAF9D /* Main.storyboard */; };
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		001CA0B321C58DE60063CE04 /* ColorFade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFade.swift; sourceTree = "<group>"; };
 		001CA0B521C58E300063CE04 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
-		001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowColumnDazzle.swift; sourceTree = "<group>"; };
+		001CA0B721C72B1D0063CE04 /* RazzleDazzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazzleDazzle.swift; sourceTree = "<group>"; };
 		002EA18D21C44CA600BAA3B3 /* DoSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSnake.swift; sourceTree = "<group>"; };
 		002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatSwirl.swift; sourceTree = "<group>"; };
 		002EA19121C44CD100BAA3B3 /* DoRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoRows.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		002EA1A021C8286C00BAA3B3 /* CenterViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewControllerDelegate.swift; sourceTree = "<group>"; };
+		002EA1A921C8600400BAA3B3 /* SnowFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowFall.swift; sourceTree = "<group>"; };
 		004B2E9C21B496F5005EAF9D /* ChristmasLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChristmasLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004B2E9F21B496F5005EAF9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004B2EA121B496F5005EAF9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,9 +89,10 @@
 				002EA19121C44CD100BAA3B3 /* DoRows.swift */,
 				002EA19321C44CDC00BAA3B3 /* DoRandom.swift */,
 				002EA19A21C8007000BAA3B3 /* StarryNight.swift */,
+				002EA1A921C8600400BAA3B3 /* SnowFall.swift */,
 				002EA19C21C8057A00BAA3B3 /* Spiral.swift */,
 				002EA19521C44CE500BAA3B3 /* DoColumns.swift */,
-				001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */,
+				001CA0B721C72B1D0063CE04 /* RazzleDazzle.swift */,
 			);
 			path = Patterns;
 			sourceTree = "<group>";
@@ -229,8 +232,9 @@
 				002EA19D21C8057A00BAA3B3 /* Spiral.swift in Sources */,
 				00DE77DD21BB3193004354C3 /* Snake.swift in Sources */,
 				002EA1A821C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift in Sources */,
+				002EA1AA21C8600400BAA3B3 /* SnowFall.swift in Sources */,
 				002EA1A521C8286C00BAA3B3 /* CenterViewControllerDelegate.swift in Sources */,
-				001CA0B821C72B1D0063CE04 /* RowColumnDazzle.swift in Sources */,
+				001CA0B821C72B1D0063CE04 /* RazzleDazzle.swift in Sources */,
 				002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */,
 				004B2EC821BA05EB005EAF9D /* Bulb.swift in Sources */,
 				002EA19621C44CE500BAA3B3 /* DoColumns.swift in Sources */,
