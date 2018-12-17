@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightsNet: UIView
+class Net: UIView
 {
     var rows = 1
     var columns = 1
@@ -28,7 +28,7 @@ class LightsNet: UIView
     {
         let h = frame.width / CGFloat(columns)
         let v = frame.height / CGFloat(rows)
-        let size: CGFloat = 2 * sqrt(h*h + v*v) / 10 // "average" divided by 5
+        let size: CGFloat = sqrt(h*h + v*v) / 5 // "average" 
         let sweep = 2 * asin((frame.width - h) / ((v - 1) * CGFloat(rows)) / 2)
         for row in 0..<rows
         {
@@ -38,11 +38,11 @@ class LightsNet: UIView
                 let angle = CGFloat.pi/2 - CGFloat(col) * sweep / CGFloat(columns - 1) + sweep / 2
                 let x = frame.width / 2 + cos(angle) * radius
                 let y = sin(angle) * radius
-                
+
                 let bulb = Bulb(frame: CGRect(x: x - h / 2,
-                                                        y: y - v / 2,
-                                                        width: h,
-                                                        height: v))
+                                              y: y - v / 2,
+                                              width: h,
+                                              height: v))
                 bulb.size = size
                 bulb.tag = row * 1000 + col + 1
                 addSubview(bulb)
@@ -72,13 +72,13 @@ class LightsNet: UIView
                 let projection = og.orthoProjection(x, CGFloat(row) * 0.75, z) /////////// CGFloat(row) * 1.5
                 let pt = projection.0
                 
-                let lightView = Bulb(frame: CGRect(x: pt.x,
+                let bulb = Bulb(frame: CGRect(x: pt.x,
                                                         y: pt.y,
                                                         width: h, height: v))
-                lightView.isInBack = (projection.1 > 0)
-                lightView.size = size
-                lightView.tag = row * 1000 + col + 1
-                addSubview(lightView)
+                bulb.isInBack = (projection.1 > 0)
+                bulb.size = size
+                bulb.tag = row * 1000 + col + 1
+                addSubview(bulb)
             }
         }
     }
@@ -96,12 +96,12 @@ class LightsNet: UIView
         for row in 0..<rows {
             let offset = (frame.width - h * CGFloat(columns)) / 2
             for col in 0..<columns {
-                let lightView = Bulb(frame: CGRect(x: CGFloat(col) * h + offset,
+                let bulb = Bulb(frame: CGRect(x: CGFloat(col) * h + offset,
                                                         y: CGFloat(row) * v,
                                                         width: h, height: v))
-                lightView.size = size
-                lightView.tag = row * 1000 + col + 1
-                addSubview(lightView)
+                bulb.size = size
+                bulb.tag = row * 1000 + col + 1
+                addSubview(bulb)
             }
             h += delta
         }
@@ -150,12 +150,17 @@ class LightsNet: UIView
             setColor(color: .black, row: row, column: col)
         }
     }
-    
+
     func turnOffColumn(_ col: Int)
     {
         for row in 0..<rows {
             setColor(color: .black, row: row, column: col)
         }
+    }
+
+    func turnOffBulb(_ loc: Location)
+    {
+        setColor(color: .black, row: loc.row, column: loc.column)
     }
     
     func setRow(_ row: Int, to color: UIColor)

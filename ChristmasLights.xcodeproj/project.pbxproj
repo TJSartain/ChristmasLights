@@ -11,17 +11,23 @@
 		001CA0B621C58E300063CE04 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B521C58E300063CE04 /* Cycle.swift */; };
 		001CA0B821C72B1D0063CE04 /* RowColumnDazzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */; };
 		002EA18E21C44CA600BAA3B3 /* DoSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18D21C44CA600BAA3B3 /* DoSnake.swift */; };
-		002EA19021C44CB100BAA3B3 /* DoFatSwirl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */; };
+		002EA19021C44CB100BAA3B3 /* FatSwirl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */; };
 		002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19121C44CD100BAA3B3 /* DoRows.swift */; };
 		002EA19421C44CDC00BAA3B3 /* DoRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19321C44CDC00BAA3B3 /* DoRandom.swift */; };
 		002EA19621C44CE500BAA3B3 /* DoColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19521C44CE500BAA3B3 /* DoColumns.swift */; };
 		002EA19921C460F100BAA3B3 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19821C460F100BAA3B3 /* Pattern.swift */; };
+		002EA19B21C8007000BAA3B3 /* StarryNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19A21C8007000BAA3B3 /* StarryNight.swift */; };
+		002EA19D21C8057A00BAA3B3 /* Spiral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19C21C8057A00BAA3B3 /* Spiral.swift */; };
+		002EA1A421C8286C00BAA3B3 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA19F21C8286C00BAA3B3 /* ContainerViewController.swift */; };
+		002EA1A521C8286C00BAA3B3 /* CenterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A021C8286C00BAA3B3 /* CenterViewControllerDelegate.swift */; };
+		002EA1A621C8286C00BAA3B3 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */; };
+		002EA1A821C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */; };
 		004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2E9F21B496F5005EAF9D /* AppDelegate.swift */; };
 		004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EA121B496F5005EAF9D /* ViewController.swift */; };
 		004B2EA521B496F5005EAF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA321B496F5005EAF9D /* Main.storyboard */; };
 		004B2EA721B496F6005EAF9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA621B496F6005EAF9D /* Assets.xcassets */; };
 		004B2EAA21B496F6005EAF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA821B496F6005EAF9D /* LaunchScreen.storyboard */; };
-		004B2EC221B49D0B005EAF9D /* LightsNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC121B49D0B005EAF9D /* LightsNet.swift */; };
+		004B2EC221B49D0B005EAF9D /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC121B49D0B005EAF9D /* Net.swift */; };
 		004B2EC621B4A2A3005EAF9D /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC521B4A2A3005EAF9D /* Drawing.swift */; };
 		004B2EC821BA05EB005EAF9D /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EC721BA05EB005EAF9D /* Bulb.swift */; };
 		004B2EEC21BF44F6005EAF9D /* OrthoGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */; };
@@ -34,11 +40,17 @@
 		001CA0B521C58E300063CE04 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
 		001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowColumnDazzle.swift; sourceTree = "<group>"; };
 		002EA18D21C44CA600BAA3B3 /* DoSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSnake.swift; sourceTree = "<group>"; };
-		002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoFatSwirl.swift; sourceTree = "<group>"; };
+		002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatSwirl.swift; sourceTree = "<group>"; };
 		002EA19121C44CD100BAA3B3 /* DoRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoRows.swift; sourceTree = "<group>"; };
 		002EA19321C44CDC00BAA3B3 /* DoRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoRandom.swift; sourceTree = "<group>"; };
 		002EA19521C44CE500BAA3B3 /* DoColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoColumns.swift; sourceTree = "<group>"; };
 		002EA19821C460F100BAA3B3 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
+		002EA19A21C8007000BAA3B3 /* StarryNight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarryNight.swift; sourceTree = "<group>"; };
+		002EA19C21C8057A00BAA3B3 /* Spiral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spiral.swift; sourceTree = "<group>"; };
+		002EA19F21C8286C00BAA3B3 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		002EA1A021C8286C00BAA3B3 /* CenterViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewControllerDelegate.swift; sourceTree = "<group>"; };
+		002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewControllerDelegate.swift; sourceTree = "<group>"; };
 		004B2E9C21B496F5005EAF9D /* ChristmasLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChristmasLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004B2E9F21B496F5005EAF9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004B2EA121B496F5005EAF9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +58,7 @@
 		004B2EA621B496F6005EAF9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		004B2EA921B496F6005EAF9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		004B2EAB21B496F6005EAF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		004B2EC121B49D0B005EAF9D /* LightsNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsNet.swift; sourceTree = "<group>"; };
+		004B2EC121B49D0B005EAF9D /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		004B2EC521B4A2A3005EAF9D /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		004B2EC721BA05EB005EAF9D /* Bulb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
 		004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrthoGraphics.swift; sourceTree = "<group>"; };
@@ -71,13 +83,26 @@
 				002EA19821C460F100BAA3B3 /* Pattern.swift */,
 				002EA18D21C44CA600BAA3B3 /* DoSnake.swift */,
 				001CA0B321C58DE60063CE04 /* ColorFade.swift */,
-				002EA18F21C44CB100BAA3B3 /* DoFatSwirl.swift */,
+				002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */,
 				002EA19121C44CD100BAA3B3 /* DoRows.swift */,
 				002EA19321C44CDC00BAA3B3 /* DoRandom.swift */,
+				002EA19A21C8007000BAA3B3 /* StarryNight.swift */,
+				002EA19C21C8057A00BAA3B3 /* Spiral.swift */,
 				002EA19521C44CE500BAA3B3 /* DoColumns.swift */,
 				001CA0B721C72B1D0063CE04 /* RowColumnDazzle.swift */,
 			);
 			path = Patterns;
+			sourceTree = "<group>";
+		};
+		002EA19E21C8284300BAA3B3 /* SlideOutMenu */ = {
+			isa = PBXGroup;
+			children = (
+				002EA1A021C8286C00BAA3B3 /* CenterViewControllerDelegate.swift */,
+				002EA19F21C8286C00BAA3B3 /* ContainerViewController.swift */,
+				002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */,
+				002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */,
+			);
+			path = SlideOutMenu;
 			sourceTree = "<group>";
 		};
 		004B2E9321B496F5005EAF9D = {
@@ -101,14 +126,15 @@
 			children = (
 				004B2E9F21B496F5005EAF9D /* AppDelegate.swift */,
 				004B2EA121B496F5005EAF9D /* ViewController.swift */,
-				004B2EC121B49D0B005EAF9D /* LightsNet.swift */,
+				004B2EC121B49D0B005EAF9D /* Net.swift */,
 				004B2EC721BA05EB005EAF9D /* Bulb.swift */,
 				00DE77DC21BB3193004354C3 /* Snake.swift */,
-				002EA19721C44D0B00BAA3B3 /* Patterns */,
 				00DE77DA21BB2630004354C3 /* Colors.swift */,
 				001CA0B521C58E300063CE04 /* Cycle.swift */,
 				004B2EC521B4A2A3005EAF9D /* Drawing.swift */,
 				004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */,
+				002EA19E21C8284300BAA3B3 /* SlideOutMenu */,
+				002EA19721C44D0B00BAA3B3 /* Patterns */,
 				004B2EA321B496F5005EAF9D /* Main.storyboard */,
 				004B2EA621B496F6005EAF9D /* Assets.xcassets */,
 				004B2EA821B496F6005EAF9D /* LaunchScreen.storyboard */,
@@ -189,21 +215,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DE77DB21BB2630004354C3 /* Colors.swift in Sources */,
+				002EA19B21C8007000BAA3B3 /* StarryNight.swift in Sources */,
+				002EA1A421C8286C00BAA3B3 /* ContainerViewController.swift in Sources */,
 				002EA19421C44CDC00BAA3B3 /* DoRandom.swift in Sources */,
-				004B2EC221B49D0B005EAF9D /* LightsNet.swift in Sources */,
+				004B2EC221B49D0B005EAF9D /* Net.swift in Sources */,
 				004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */,
 				001CA0B421C58DE60063CE04 /* ColorFade.swift in Sources */,
 				004B2EEC21BF44F6005EAF9D /* OrthoGraphics.swift in Sources */,
 				001CA0B621C58E300063CE04 /* Cycle.swift in Sources */,
-				002EA19021C44CB100BAA3B3 /* DoFatSwirl.swift in Sources */,
+				002EA19021C44CB100BAA3B3 /* FatSwirl.swift in Sources */,
 				004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */,
 				004B2EC621B4A2A3005EAF9D /* Drawing.swift in Sources */,
+				002EA19D21C8057A00BAA3B3 /* Spiral.swift in Sources */,
 				00DE77DD21BB3193004354C3 /* Snake.swift in Sources */,
+				002EA1A821C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift in Sources */,
+				002EA1A521C8286C00BAA3B3 /* CenterViewControllerDelegate.swift in Sources */,
 				001CA0B821C72B1D0063CE04 /* RowColumnDazzle.swift in Sources */,
 				002EA19221C44CD100BAA3B3 /* DoRows.swift in Sources */,
 				004B2EC821BA05EB005EAF9D /* Bulb.swift in Sources */,
 				002EA19621C44CE500BAA3B3 /* DoColumns.swift in Sources */,
 				002EA19921C460F100BAA3B3 /* Pattern.swift in Sources */,
+				002EA1A621C8286C00BAA3B3 /* SidePanelViewController.swift in Sources */,
 				002EA18E21C44CA600BAA3B3 /* DoSnake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

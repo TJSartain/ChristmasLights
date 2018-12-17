@@ -42,8 +42,8 @@ class SnakePattern: Pattern
                 let pct = CGFloat(snake.segments.count - i) / CGFloat(snake.segments.count) * 0.75 + 0.25
                 snake.segments[i].color = snake.segments[i].color.withAlphaComponent(pct)
             }
-            lightsNet.oneColor(placeholderColor)
-            lightsNet.frameIn(.darkGray)
+            net.oneColor(placeholderColor)
+            net.frameIn(.darkGray)
             super.start(every: interval, with: snake)
         }
     }
@@ -52,15 +52,15 @@ class SnakePattern: Pattern
     {
         let lastRow = snake.segments.last!.location.row
         let lastColumn = snake.segments.last!.location.column
-        if snake.move(bounds: (lightsNet.rows, lightsNet.columns))
+        if snake.move()
         {
             for segment in snake.segments
             {
-                lightsNet.setColor(color: segment.color,
+                net.setColor(color: segment.color,
                                     row: segment.location.row,
                                     column: segment.location.column)
             }
-            lightsNet.setColor(color: lightsNet.onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
+            net.setColor(color: net.onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
                                 row: lastRow,
                                 column: lastColumn)
         } else {

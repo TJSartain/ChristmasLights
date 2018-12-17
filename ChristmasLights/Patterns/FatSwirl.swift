@@ -26,14 +26,14 @@ class FatSwirlPattern: Pattern
     
     override func draw(timer: Timer)
     {
-        for col in 0..<lightsNet.columns
+        for col in 0..<net.columns
         {
-            for row in 0..<lightsNet.rows
+            for row in 0..<net.rows
             {
-                let color = (row + currentRow + col) % lightsNet.columns < lightsNet.columns / 2 ? colors[0] : colors[1]
-                lightsNet.setColor(color: color, row: row, column: col)
+                let color = (row + currentRow + col) % net.columns < net.columns / 2 ? colors[0] : colors[1]
+                net.setColor(color: color, row: row, column: col)
             }
         }
-        currentRow = (currentRow + 1) % lightsNet.rows
+        currentRow = (currentRow + 1) % net.rows
     }
 }

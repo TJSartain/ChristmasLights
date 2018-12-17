@@ -28,7 +28,7 @@ class ColorFade: Pattern
     
     override func draw(timer: Timer)
     {
-        lightsNet.oneColor(colors[index])
+        net.oneColor(colors[index])
         index = (index + 1) % colors.count
     }
 }

@@ -9,8 +9,6 @@
 import UIKit
 
 typealias Heading = (v: Int, h: Int)
-typealias Location = (row: Int, column: Int)
-typealias Bounds = (rows: Int, columns: Int)
 
 struct SnakeLight
 {
@@ -30,10 +28,10 @@ class Snake: NSObject
     /// - Parameter bounds: coords the snake can move within
     /// - Returns: whether or not the snake was moved
     
-    func move(bounds: Bounds) -> Bool
+    func move() -> Bool
     {
-        if canMove(bounds: bounds) {
-            var next = nextLocation(bounds: bounds)
+        if canMove() {
+            var next = nextLocation()
             for i in 0..<segments.count {
                 let save = segments[i].location
                 segments[i].location = next
@@ -51,16 +49,16 @@ class Snake: NSObject
     /// - Parameter bounds: coords the snake can move within
     /// - Returns: tuple for vertical and horizontal coordinates
     
-    func nextLocation(bounds: Bounds) -> Location
+    func nextLocation() -> Location
     {
         if Int.random(in: 0 ..< 5) < 1 { // turn 20% of the time
             heading = randomDirection()
         }
-        var nextHead = getNextHead(heading, bounds: bounds)
-        while !inBounds(loc: nextHead, bounds: bounds) || onSelf(loc: nextHead)
+        var nextHead = getNextHead(heading)
+        while !inBounds(loc: nextHead) || onSelf(loc: nextHead)
         {
             heading = randomDirection()
-            nextHead = getNextHead(heading, bounds: bounds)
+            nextHead = getNextHead(heading)
         }
         return nextHead
     }
@@ -72,10 +70,10 @@ class Snake: NSObject
     ///   - bounds: coords the snake can move within
     /// - Returns: tuple for vertical and horizontal coordinates
     
-    func getNextHead(_ newHeading: Heading, bounds: Bounds) -> Location
+    func getNextHead(_ newHeading: Heading) -> Location
     {
         let newHead = (segments[0].location.row + newHeading.v,
-                       (segments[0].location.column + newHeading.h + bounds.columns) % bounds.columns)
+                       (segments[0].location.column + newHeading.h + net.columns) % net.columns)
         return newHead
     }
 
@@ -99,13 +97,13 @@ class Snake: NSObject
     /// - Parameter bounds: coords the snake can move within
     /// - Returns: yes or no
 
-    func canMove(bounds: Bounds) -> Bool
+    func canMove() -> Bool
     {
         for v in -1...1 {
             for h in -1...1 {
                 if h == 0 && v == 0 { continue }
-                let nextHead = getNextHead((v, h), bounds: bounds)
-                if inBounds(loc: nextHead, bounds: bounds) && !onSelf(loc: nextHead) {
+                let nextHead = getNextHead((v, h))
+                if inBounds(loc: nextHead) && !onSelf(loc: nextHead) {
                     return true
                 }
             }
@@ -121,9 +119,9 @@ class Snake: NSObject
     ///   - bounds: coords the snake can move within
     /// - Returns: yes or no
 
-    func inBounds(loc: Location, bounds: Bounds) -> Bool
+    func inBounds(loc: Location) -> Bool
     {
-        return loc.row >= 0 && loc.row < bounds.rows
+        return loc.row >= 0 && loc.row < net.rows
     }
 
     /// Determines if the given location is anywhre on the snake

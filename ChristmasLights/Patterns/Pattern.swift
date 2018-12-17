@@ -10,27 +10,26 @@ import UIKit
 
 class Pattern: NSObject
 {
-    var lightsNet: LightsNet
-    var timer = Timer()
+    let name: String
     var colors = [UIColor]()
     var currentRow = 0
     var currentCol = 0
 
-    init(using view: LightsNet)
+    init(_ name: String)
     {
-        lightsNet = view
+        self.name = name
     }
 
     func start()
     {
-        start(every: 1, with: "")
+        start(every: 1, with: nil)
     }
 
     func start(every interval: TimeInterval, with info: Any?)
     {
-        timer = Timer.scheduledTimer(timeInterval: interval,
+        Global.timer = Timer.scheduledTimer(timeInterval: interval,
                                      target: self,
-                                     selector: #selector(self.draw),
+                                     selector: #selector(draw),
                                      userInfo: nil,
                                      repeats: true)
     }
@@ -42,6 +41,21 @@ class Pattern: NSObject
 
     func stop()
     {
-        timer.invalidate()
+        colors = [UIColor]()
+        Global.timer.invalidate()
+    }
+
+    static func allPatterns() -> [Pattern] {
+        return [
+            RandomPattern("Random"),
+            ColorFade("Color Cycle"),
+            FatSwirlPattern("Fat Swirl"),
+            RowsPattern("Rows"),
+            ColumnsPattern("Columns"),
+            RowColumnDazzle("Razzle Dazzle"),
+            StarryNight("Starry Night"),
+            Spiral("Spiral"),
+            SnakePattern("Snake")
+        ]
     }
 }

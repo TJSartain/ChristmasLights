@@ -8,42 +8,50 @@
 
 import UIKit
 
-let placeholderColor = UIColor.white.withAlphaComponent(0.15)
+typealias Location = (row: Int, column: Int)
+
+struct Global {
+    static var timer: Timer!
+}
+
+var placeholderColor = UIColor.white.withAlphaComponent(0.15)
+var net: Net!
 
 class ViewController: UIViewController
 {
-    @IBOutlet weak var lightsNet: LightsNet!
+    @IBOutlet weak var lightsNet: Net!
     var patterns = [Pattern]()
-    var currentPattern = 0
-    
-    let colors = [Malibu, SuperNova, Pizazz, RadicalRed, AzureRadiance, Emerald, RedOrange]
+    var currentPattern: Pattern!
 
-    var currentRow = 0
-    var currentCol = 0
-    var currentDir = 0
+    var delegate: CenterViewControllerDelegate?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        lightsNet.rows = 35
-        lightsNet.columns = 11
-        lightsNet.backgroundColor = .black
-        
-        patterns = [RowColumnDazzle(using: lightsNet),
-                    RowsPattern(using: lightsNet),
-                    ColumnsPattern(using: lightsNet),
-                    SnakePattern(using: lightsNet),
-                    FatSwirlPattern(using: lightsNet),
-                    ColorFade(using: lightsNet)]
+        Global.timer = Timer()
 
-        patterns[currentPattern].start()
+        net = lightsNet
+        net.rows = 35
+        net.columns = 11
+        net.backgroundColor = .black
+
+        currentPattern = RandomPattern("Random")
+        currentPattern.start()
     }
 
-    @IBAction func patternChange(_ sender: UISegmentedControl)
+    @IBAction func patternsTapped(_ sender: Any) {
+        delegate?.toggleLeftPanel?()
+    }
+}
+
+extension ViewController: SidePanelViewControllerDelegate
+{
+    func didSelectPattern(_ pattern: Pattern)
     {
-        patterns[currentPattern].stop()
-        currentPattern = sender.selectedSegmentIndex
-        patterns[currentPattern].start()
+        currentPattern.stop()
+        currentPattern = pattern
+        currentPattern.start()
+        delegate?.collapseSidePanels?()
     }
 }

@@ -25,13 +25,13 @@ class RandomPattern: Pattern
     
     override func draw(timer: Timer)
     {
-        for row in 0..<lightsNet.rows
+        for row in 0..<net.rows
         {
-            for col in 0..<lightsNet.columns
+            for col in 0..<net.columns
             {
                 let index = Int.random(in: 0..<colors.count)
                 let color = colors[index]
-                lightsNet.setColor(color: color, row: row, column: col)
+                net.setColor(color: color, row: row, column: col)
             }
         }
     }

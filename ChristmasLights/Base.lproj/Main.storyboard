@@ -1,84 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChristmasLights" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="ChristmasLights" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g0d-cI-M8E"/>
+                        <viewControllerLayoutGuide type="bottom" id="j5h-KN-Ejr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-99-j9z" customClass="LightsNet" customModule="ChristmasLights" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-99-j9z" customClass="Net" customModule="ChristmasLights" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.10228488869863013" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGs-Td-mMc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4C-ve-H33">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-Ph-7wa">
-                                        <rect key="frame" x="20" y="8" width="335" height="29"/>
-                                        <segments>
-                                            <segment title="Random"/>
-                                            <segment title="Rows"/>
-                                            <segment title="Columns"/>
-                                            <segment title="Snake"/>
-                                            <segment title="Swirl"/>
-                                            <segment title="Fade"/>
-                                        </segments>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="patternChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="nWa-Ut-zdo"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohZ-ab-UcR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="539-BO-jhT"/>
-                                    <constraint firstItem="OAh-Ph-7wa" firstAttribute="centerY" secondItem="u4C-ve-H33" secondAttribute="centerY" id="FcE-Bo-rXG"/>
-                                    <constraint firstAttribute="trailing" secondItem="OAh-Ph-7wa" secondAttribute="trailing" constant="20" id="J0R-GV-MOT"/>
-                                    <constraint firstItem="OAh-Ph-7wa" firstAttribute="leading" secondItem="u4C-ve-H33" secondAttribute="leading" constant="20" id="YuN-Oj-u2b"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="u4C-ve-H33" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0vv-JG-Ywa"/>
-                            <constraint firstItem="7iX-99-j9z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9fs-mq-rmB"/>
-                            <constraint firstItem="u4C-ve-H33" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FCh-Bq-CzZ"/>
-                            <constraint firstItem="u4C-ve-H33" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GYe-e5-Bn5"/>
-                            <constraint firstItem="7iX-99-j9z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ohd-gH-Xrb"/>
-                            <constraint firstItem="7iX-99-j9z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qp3-ex-QNQ"/>
-                            <constraint firstItem="u4C-ve-H33" firstAttribute="top" secondItem="7iX-99-j9z" secondAttribute="bottom" id="vAc-Ki-EQy"/>
+                            <constraint firstItem="7iX-99-j9z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ojx-fi-C3l"/>
+                            <constraint firstItem="j5h-KN-Ejr" firstAttribute="top" secondItem="7iX-99-j9z" secondAttribute="bottom" id="Vkx-Rh-Z5c"/>
+                            <constraint firstItem="7iX-99-j9z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gdH-45-zZF"/>
+                            <constraint firstItem="7iX-99-j9z" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="uj8-Fx-h21"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Christmas Lights" id="29H-BI-ot9">
+                        <barButtonItem key="leftBarButtonItem" title="Patterns" id="y0X-TI-tfl">
+                            <connections>
+                                <action selector="patternsTapped:" destination="BYZ-38-t0r" id="V0V-jc-R12"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
-                        <outlet property="lightsNet" destination="7iX-99-j9z" id="hSq-lU-Ja7"/>
+                        <outlet property="lightsNet" destination="7iX-99-j9z" id="hge-qB-nDQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="130.88455772113943"/>
+        </scene>
+        <!--Left View Controller-->
+        <scene sceneID="a7t-D7-yGy">
+            <objects>
+                <viewController storyboardIdentifier="LeftViewController" title="Left View Controller" id="hDT-Ex-nSs" customClass="SidePanelViewController" customModule="ChristmasLights" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ljM-2y-hBX"/>
+                        <viewControllerLayoutGuide type="bottom" id="PO9-Vq-vPE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ull-dz-E77">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ep0-RR-nk5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="OmL-6N-QtN" style="IBUITableViewCellStyleDefault" id="Bj6-ij-IVH">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bj6-ij-IVH" id="nVn-In-shx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OmL-6N-QtN">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="53.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hDT-Ex-nSs" id="C1i-6H-6ok"/>
+                                    <outlet property="delegate" destination="hDT-Ex-nSs" id="An1-BM-SmT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PO9-Vq-vPE" firstAttribute="top" secondItem="Ep0-RR-nk5" secondAttribute="bottom" id="cSA-pl-DIb"/>
+                            <constraint firstItem="Ep0-RR-nk5" firstAttribute="top" secondItem="ljM-2y-hBX" secondAttribute="bottom" id="jqt-RL-0Wm"/>
+                            <constraint firstItem="Ep0-RR-nk5" firstAttribute="trailing" secondItem="Ull-dz-E77" secondAttribute="trailing" id="k0f-K6-reX"/>
+                            <constraint firstItem="Ep0-RR-nk5" firstAttribute="leading" secondItem="Ull-dz-E77" secondAttribute="leading" id="udp-U9-OOh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ep0-RR-nk5" id="1TN-3Y-fJ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2UR-oA-XjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-702" y="131"/>
         </scene>
     </scenes>
 </document>

@@ -14,17 +14,20 @@ class RowColumnDazzle: Pattern
     var columnColor = Malibu
     var dazzle = false
     var dazzle2 = false
+    var dazzleCount = 0
+    var dazzleLimit = 1
 
     override func start()
     {
         rowColor = Emerald
         columnColor = Malibu
-        start(every: 0.05, with: nil)
+        start(every: 0.03, with: nil)
     }
     
     override func start(every interval: TimeInterval, with info: Any?)
     {
-        lightsNet.blackOut()
+        colors = UIColor.colorCycle(n: 288)
+        net.blackOut()
         currentRow = 0
         super.start(every: interval, with: nil)
     }
@@ -33,34 +36,53 @@ class RowColumnDazzle: Pattern
     {
         if dazzle {
             if dazzle2 {
-                lightsNet.turnOffColumn(currentCol)
                 if currentCol == 0 {
-                    dazzle = false
+                    dazzleCount += 1
+                    dazzle = dazzleCount < dazzleLimit
                     dazzle2 = false
                     currentRow = 0
+                    if dazzleCount >= dazzleLimit {
+                        net.turnOffColumn(currentCol)
+                        Global.timer.invalidate()
+                        Global.timer = Timer.scheduledTimer(timeInterval: 0.06,
+                                                           target: self,
+                                                           selector: #selector(draw),
+                                                           userInfo: nil,
+                                                           repeats: true)
+                    }
                 } else {
-                    currentCol = (currentCol - 1) % lightsNet.columns
-                    lightsNet.setColumn(currentCol, to: columnColor)
+                    net.turnOffColumn(currentCol)
+                    currentCol = (currentCol - 1) % net.columns
+                    net.setColumn(currentCol, to: columnColor)
                 }
             } else {
-                if currentCol == lightsNet.columns - 1 {
+                if currentCol == net.columns - 1 {
                     dazzle2 = true
                 } else {
-                    lightsNet.turnOffColumn(currentCol)
-                    currentCol = (currentCol + 1) % lightsNet.columns
-                    lightsNet.setColumn(currentCol, to: columnColor)
+                    net.turnOffColumn(currentCol)
+                    currentCol = (currentCol + 1) % net.columns
+                    net.setColumn(currentCol, to: columnColor)
                 }
             }
         } else {
-            lightsNet.turnOffRow(currentRow)
-            lightsNet.turnOffRow(lightsNet.rows - currentRow)
-            if currentRow == lightsNet.rows - 1 {
+            net.turnOffRow(currentRow)
+            net.turnOffRow(net.rows - currentRow)
+            if currentRow == net.rows - 1 {
                 dazzle = true
+                Global.timer.invalidate()
+                Global.timer = Timer.scheduledTimer(timeInterval: 0.03,
+                                             target: self,
+                                             selector: #selector(draw),
+                                             userInfo: nil,
+                                             repeats: true)
+                columnColor = colors[Int.random(in: 0..<288)]
+                dazzleLimit = Int.random(in: 1...3)
+                dazzleCount = 0
                 currentCol = 0
             } else {
-                currentRow = (currentRow + 1) % lightsNet.rows
-                lightsNet.setRow(currentRow, to: rowColor)
-                lightsNet.setRow(lightsNet.rows - currentRow, to: rowColor)
+                currentRow = (currentRow + 1) % net.rows
+                net.setRow(currentRow, to: rowColor)
+                net.setRow(net.rows - currentRow, to: rowColor)
             }
         }
     }

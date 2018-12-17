@@ -26,14 +26,14 @@ class ColumnsPattern: Pattern
     
     override func draw(timer: Timer)
     {
-        for col in 0..<lightsNet.columns
+        for col in 0..<net.columns
         {
-            let color = colors[((col + currentCol) % lightsNet.columns) % colors.count]
-            for row in 0..<lightsNet.rows
+            let color = colors[((col + currentCol) % net.columns) % colors.count]
+            for row in 0..<net.rows
             {
-                lightsNet.setColor(color: color, row: row, column: col)
+                net.setColor(color: color, row: row, column: col)
             }
         }
-        currentCol = (currentCol + 1) % lightsNet.columns
+        currentCol = (currentCol + 1) % net.columns
     }
 }
