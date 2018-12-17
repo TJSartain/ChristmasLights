@@ -10,8 +10,6 @@ import UIKit
 
 class FatSwirlPattern: Pattern
 {
-    var currentRow = 0
-    
     override func start()
     {
         start(every: 0.03, with: [RadicalRed, Emerald])
@@ -19,21 +17,23 @@ class FatSwirlPattern: Pattern
     
     override func start(every interval: TimeInterval, with info: Any?)
     {
-        currentRow = 0
-        super.start(every: interval, with: info)
+        if let colors = info as? [UIColor] {
+            self.colors = colors
+            currentRow = 0
+            super.start(every: interval, with: nil)
+        }
     }
     
     override func draw(timer: Timer)
     {
-        let colors = info as! [UIColor]
-        for col in 0..<lightsView.columns
+        for col in 0..<lightsNet.columns
         {
-            for row in 0..<lightsView.rows
+            for row in 0..<lightsNet.rows
             {
-                let color = (row + currentRow + col) % lightsView.columns < lightsView.columns / 2 ? colors[0] : colors[1]
-                lightsView.setColor(color: color, row: row, column: col)
+                let color = (row + currentRow + col) % lightsNet.columns < lightsNet.columns / 2 ? colors[0] : colors[1]
+                lightsNet.setColor(color: color, row: row, column: col)
             }
         }
-        currentRow = (currentRow + 1) % lightsView.rows
+        currentRow = (currentRow + 1) % lightsNet.rows
     }
 }

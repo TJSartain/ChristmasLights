@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightView: UIView
+class Bulb: UIView
 {
     /// No drawing is done if the light is off
     
@@ -32,7 +32,8 @@ class LightView: UIView
     /// ready for sizing and translation when the size is set.
     /// No calculations are needed (except transforms) when drawing
     
-    var star = starPath()
+//    var shape = starPath()
+    var shape = UIBezierPath(ovalIn: CGRect(x: -0.5, y: -0.5, width: 1, height: 1))
     
     /// When the size is set, the shape is also translated to the center
     /// before being sized. If the size wasn't 1 beforehand, the shape is
@@ -42,13 +43,13 @@ class LightView: UIView
     var size: CGFloat = 1 {
         willSet {
             if size != 1 {
-                star.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
-                star.apply(CGAffineTransform(scaleX: 1/size, y: 1/size))
+                shape.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
+                shape.apply(CGAffineTransform(scaleX: 1/size, y: 1/size))
             }
         }
         didSet {
-            star.apply(CGAffineTransform(scaleX: size, y: size))
-            star.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
+            shape.apply(CGAffineTransform(scaleX: size, y: size))
+            shape.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
         }
     }
     
@@ -70,7 +71,7 @@ class LightView: UIView
             var alpha: CGFloat = 1
             color.getWhite(nil, alpha: &alpha)
             color.withAlphaComponent(isInBack ? 0.25 * alpha : alpha).setFill()
-            star.fill()
+            shape.fill()
         }
     }
     

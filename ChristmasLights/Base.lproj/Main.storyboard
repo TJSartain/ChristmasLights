@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-99-j9z" customClass="LightsView" customModule="ChristmasLights" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-99-j9z" customClass="LightsNet" customModule="ChristmasLights" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.10228488869863013" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -59,119 +59,21 @@
                                     <constraint firstItem="OAh-Ph-7wa" firstAttribute="leading" secondItem="u4C-ve-H33" secondAttribute="leading" constant="20" id="YuN-Oj-u2b"/>
                                 </constraints>
                             </view>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fv7-TE-YT3">
-                                <rect key="frame" x="0.0" y="623" width="375" height="120"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sLz-9R-DHW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane To Eye" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHg-lf-R3J">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="3yo-hF-EBQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="6as-eY-hcH">
-                                                <rect key="frame" x="86" y="0.0" width="291" height="31"/>
-                                                <connections>
-                                                    <action selector="changeToEye:" destination="7iX-99-j9z" eventType="valueChanged" id="YKQ-8j-gCs"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dsL-J4-egb">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane To Obj" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-CM-CF6">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="Gdb-iu-acC"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uPq-yA-EsU">
-                                                <rect key="frame" x="86" y="0.0" width="291" height="31"/>
-                                                <connections>
-                                                    <action selector="changeToObj:" destination="7iX-99-j9z" eventType="valueChanged" id="upx-ud-7Ho"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eiu-8F-a6A">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Azimuth" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3F-Tk-aIe">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="ALH-k9-iMJ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="180" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="T5s-vt-aiD">
-                                                <rect key="frame" x="86" y="0.0" width="291" height="31"/>
-                                                <connections>
-                                                    <action selector="changeAzimuth:" destination="7iX-99-j9z" eventType="valueChanged" id="WeG-Mh-MFt"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-Ev-kRf">
-                                        <rect key="frame" x="0.0" y="90" width="375" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elevation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj4-pS-Bvl">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="JI1-Al-zjp"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="RXg-3W-IUw">
-                                                <rect key="frame" x="86" y="0.0" width="291" height="31"/>
-                                                <connections>
-                                                    <action selector="changeElevation:" destination="7iX-99-j9z" eventType="valueChanged" id="iwA-eT-OfM"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eiu-8F-a6A" secondAttribute="trailing" id="1Zh-iw-IxX"/>
-                                    <constraint firstItem="dsL-J4-egb" firstAttribute="leading" secondItem="fv7-TE-YT3" secondAttribute="leading" id="2Lp-RY-2qN"/>
-                                    <constraint firstAttribute="trailing" secondItem="sLz-9R-DHW" secondAttribute="trailing" id="Elu-Sy-TFB"/>
-                                    <constraint firstAttribute="trailing" secondItem="dsL-J4-egb" secondAttribute="trailing" id="Mbc-yx-fQM"/>
-                                    <constraint firstItem="eiu-8F-a6A" firstAttribute="leading" secondItem="fv7-TE-YT3" secondAttribute="leading" id="YWN-LS-j2p"/>
-                                    <constraint firstAttribute="trailing" secondItem="CJS-Ev-kRf" secondAttribute="trailing" id="aeB-ym-CYx"/>
-                                    <constraint firstItem="sLz-9R-DHW" firstAttribute="leading" secondItem="fv7-TE-YT3" secondAttribute="leading" id="kQY-Kt-ZhF"/>
-                                    <constraint firstItem="CJS-Ev-kRf" firstAttribute="leading" secondItem="fv7-TE-YT3" secondAttribute="leading" id="v5q-Ro-pjm"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fv7-TE-YT3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0r2-A7-aJr"/>
                             <constraint firstItem="u4C-ve-H33" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0vv-JG-Ywa"/>
                             <constraint firstItem="7iX-99-j9z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9fs-mq-rmB"/>
                             <constraint firstItem="u4C-ve-H33" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FCh-Bq-CzZ"/>
                             <constraint firstItem="u4C-ve-H33" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GYe-e5-Bn5"/>
                             <constraint firstItem="7iX-99-j9z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ohd-gH-Xrb"/>
-                            <constraint firstItem="u4C-ve-H33" firstAttribute="top" secondItem="fv7-TE-YT3" secondAttribute="bottom" constant="-120" id="Puo-AJ-BJS"/>
-                            <constraint firstAttribute="trailing" secondItem="fv7-TE-YT3" secondAttribute="trailing" id="Y88-Pw-npB"/>
                             <constraint firstItem="7iX-99-j9z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qp3-ex-QNQ"/>
                             <constraint firstItem="u4C-ve-H33" firstAttribute="top" secondItem="7iX-99-j9z" secondAttribute="bottom" id="vAc-Ki-EQy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="lightsView" destination="7iX-99-j9z" id="hSq-lU-Ja7"/>
+                        <outlet property="lightsNet" destination="7iX-99-j9z" id="hSq-lU-Ja7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

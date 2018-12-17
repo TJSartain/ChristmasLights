@@ -10,9 +10,11 @@ import UIKit
 
 class SnakePattern: Pattern
 {
+    var snake = Snake()
+    
     override func start()
     {
-        let snake = Snake()
+        snake = Snake()
         snake.segments = [SnakeLight(color: RadicalRed, location: (4, 9)),
                           SnakeLight(color: Emerald,    location: (4, 8)),
                           SnakeLight(color: Emerald,    location: (4, 7)),
@@ -34,34 +36,34 @@ class SnakePattern: Pattern
     
     override func start(every interval: TimeInterval, with info: Any?)
     {
-        let snake = info as! Snake
-        for i in 0..<snake.segments.count {
-            let pct = CGFloat(snake.segments.count - i) / CGFloat(snake.segments.count) * 0.75 + 0.25
-            snake.segments[i].color = snake.segments[i].color.withAlphaComponent(pct)
+        if let snake = info as? Snake, snake.segments.count > 0 {
+            self.snake = snake
+            for i in 0..<snake.segments.count {
+                let pct = CGFloat(snake.segments.count - i) / CGFloat(snake.segments.count) * 0.75 + 0.25
+                snake.segments[i].color = snake.segments[i].color.withAlphaComponent(pct)
+            }
+            lightsNet.oneColor(placeholderColor)
+            lightsNet.frameIn(.darkGray)
+            super.start(every: interval, with: snake)
         }
-        lightsView.oneColor(placeholderColor)
-        lightsView.frameIn(.darkGray)
-        super.start(every: interval, with: snake)
     }
     
     override func draw(timer: Timer)
     {
-        let snake = info as! Snake
         let lastRow = snake.segments.last!.location.row
         let lastColumn = snake.segments.last!.location.column
-        if snake.move(bounds: (rows, columns))
+        if snake.move(bounds: (lightsNet.rows, lightsNet.columns))
         {
             for segment in snake.segments
             {
-                lightsView.setColor(color: segment.color,
+                lightsNet.setColor(color: segment.color,
                                     row: segment.location.row,
                                     column: segment.location.column)
             }
-            lightsView.setColor(color: onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
+            lightsNet.setColor(color: lightsNet.onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
                                 row: lastRow,
                                 column: lastColumn)
         } else {
-            print("Starting over")
             stop()
             start() // start over
         }

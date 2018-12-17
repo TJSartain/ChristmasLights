@@ -10,13 +10,15 @@ import UIKit
 
 class Pattern: NSObject
 {
-    var lightsView: LightsView
+    var lightsNet: LightsNet
     var timer = Timer()
-    var info: Any?
+    var colors = [UIColor]()
+    var currentRow = 0
+    var currentCol = 0
 
-    init(using view: LightsView)
+    init(using view: LightsNet)
     {
-        lightsView = view
+        lightsNet = view
     }
 
     func start()
@@ -26,7 +28,6 @@ class Pattern: NSObject
 
     func start(every interval: TimeInterval, with info: Any?)
     {
-        self.info = info
         timer = Timer.scheduledTimer(timeInterval: interval,
                                      target: self,
                                      selector: #selector(self.draw),

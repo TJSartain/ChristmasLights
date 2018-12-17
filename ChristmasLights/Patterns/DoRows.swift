@@ -10,8 +10,6 @@ import UIKit
 
 class RowsPattern: Pattern
 {
-    var currentRow = 0
-
     override func start()
     {
         start(every: 0.06, with: [RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, RadicalRed, Emerald, RadicalRed, RadicalRed])
@@ -19,21 +17,23 @@ class RowsPattern: Pattern
 
     override func start(every interval: TimeInterval, with info: Any?)
     {
-        currentRow = 0
-        super.start(every: interval, with: info)
+        if let colors = info as? [UIColor] {
+            self.colors = colors
+            currentRow = 0
+            super.start(every: interval, with: nil)
+        }
     }
 
     override func draw(timer: Timer)
     {
-        let colors = info as! [UIColor]
-        for row in 0..<lightsView.rows
+        for row in 0..<lightsNet.rows
         {
-            let color = colors[((row + currentRow) % lightsView.rows) % colors.count]
-            for col in 0..<lightsView.columns
+            let color = colors[((row + currentRow) % lightsNet.rows) % colors.count]
+            for col in 0..<lightsNet.columns
             {
-                lightsView.setColor(color: color, row: row, column: col)
+                lightsNet.setColor(color: color, row: row, column: col)
             }
         }
-        currentRow = (currentRow + 1) % lightsView.rows
+        currentRow = (currentRow + 1) % lightsNet.rows
     }
 }
