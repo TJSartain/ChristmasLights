@@ -15,21 +15,21 @@ class SnakePattern: Pattern
     override func start()
     {
         snake = Snake()
-        snake.segments = [SnakeLight(color: RadicalRed, location: (4, 9)),
-                          SnakeLight(color: Emerald,    location: (4, 8)),
-                          SnakeLight(color: Emerald,    location: (4, 7)),
-                          SnakeLight(color: Emerald,    location: (4, 6)),
-                          SnakeLight(color: Emerald,    location: (4, 5)),
-                          SnakeLight(color: Emerald,    location: (4, 4)),
-                          SnakeLight(color: Emerald,    location: (4, 3)),
-                          SnakeLight(color: Emerald,    location: (4, 2)),
-                          SnakeLight(color: Emerald,    location: (4, 1)),
-                          SnakeLight(color: Emerald,    location: (4, 0)),
-                          SnakeLight(color: Emerald,    location: (5, 0)),
-                          SnakeLight(color: Emerald,    location: (6, 0)),
-                          SnakeLight(color: Emerald,    location: (7, 0)),
-                          SnakeLight(color: Emerald,    location: (8, 0)),
-                          SnakeLight(color: Emerald,    location: (9, 0))]
+        snake.segments = [SnakeLight(color: RadicalRed, location: (14, 9)),
+                          SnakeLight(color: Emerald,    location: (14, 8)),
+                          SnakeLight(color: Emerald,    location: (14, 7)),
+                          SnakeLight(color: Emerald,    location: (14, 6)),
+                          SnakeLight(color: Emerald,    location: (14, 5)),
+                          SnakeLight(color: Emerald,    location: (14, 4)),
+                          SnakeLight(color: Emerald,    location: (14, 3)),
+                          SnakeLight(color: Emerald,    location: (14, 2)),
+                          SnakeLight(color: Emerald,    location: (14, 1)),
+                          SnakeLight(color: Emerald,    location: (14, 0)),
+                          SnakeLight(color: Emerald,    location: (15, 0)),
+                          SnakeLight(color: Emerald,    location: (16, 0)),
+                          SnakeLight(color: Emerald,    location: (17, 0)),
+                          SnakeLight(color: Emerald,    location: (18, 0)),
+                          SnakeLight(color: Emerald,    location: (19, 0))]
         snake.heading = (1, 1)
         start(every: 0.1, with: snake)
     }

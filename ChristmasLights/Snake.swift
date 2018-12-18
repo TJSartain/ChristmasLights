@@ -121,7 +121,7 @@ class Snake: NSObject
 
     func inBounds(loc: Location) -> Bool
     {
-        return loc.row >= 0 && loc.row < net.rows
+        return loc.row >= 3 && loc.row < net.rows
     }
 
     /// Determines if the given location is anywhre on the snake
