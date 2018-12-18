@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol PatternDelegate {
+protocol PatternDelegate
+{
+    var net: Net! { get }
     func redraw()
 }
 
@@ -21,11 +23,11 @@ class Pattern: NSObject
     var delegate: PatternDelegate?
     var net: Net
 
-    init(_ name: String, _ delegate: PatternDelegate, _ net: Net)
+    init(_ name: String, _ delegate: PatternDelegate)
     {
         self.name = name
         self.delegate = delegate
-        self.net = net
+        self.net = delegate.net
     }
 
     func start()

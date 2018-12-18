@@ -17,11 +17,11 @@ struct Global {
 var placeholderColor = rgb(31, 31, 31)
 var patterns = [Pattern]()
 
-class ViewController: UIViewController, PatternDelegate
+class ViewController: UIViewController
 {
     @IBOutlet weak var netView: NetView!
-    var currentPattern: Pattern!
 
+    var currentPattern: Pattern!
     var delegate: CenterViewControllerDelegate?
 
     override func viewDidLoad()
@@ -30,35 +30,32 @@ class ViewController: UIViewController, PatternDelegate
 
         Global.timer = Timer()
 
-        netView.net?.rows = 35
-        netView.net?.columns = 11
+        netView.net = Net(rows: 35, columns: 11)
         netView.backgroundColor = .black
 
-        patterns = allPatterns(netView.net!)
+        patterns = allPatterns()
         currentPattern = patterns[0]
         currentPattern.start()
     }
 
-    @IBAction func patternsTapped(_ sender: Any) {
+    @IBAction func patternsTapped(_ sender: Any)
+    {
         delegate?.toggleLeftPanel?()
     }
 
-    func redraw() {
-        netView.setNeedsDisplay()
-    }
-
-    func allPatterns(_ net: Net) -> [Pattern] {
+    func allPatterns() -> [Pattern]
+    {
         return [
-            RandomPattern("Random",       self, net),
-            ColorFade("Color Cycle",      self, net),
-            FatSwirlPattern("Fat Swirl",  self, net),
-            RowsPattern("Rows",           self, net),
-            ColumnsPattern("Columns",     self, net),
-            RazzleDazzle("Razzle Dazzle", self, net),
-            StarryNight("Starry Night",   self, net),
-            SnowFall("Snow Fall",         self, net),
-            Spiral("Spiral",              self, net),
-            SnakePattern("Snake",         self, net)
+            RandomPattern("Random",       netView),
+            ColorFade("Color Cycle",      netView),
+            FatSwirlPattern("Fat Swirl",  netView),
+            RowsPattern("Rows",           netView),
+            ColumnsPattern("Columns",     netView),
+            RazzleDazzle("Razzle Dazzle", netView),
+            StarryNight("Starry Night",   netView),
+            SnowFall("Snow Fall",         netView),
+            Spiral("Spiral",              netView),
+            SnakePattern("Snake",         netView)
         ]
     }
 }

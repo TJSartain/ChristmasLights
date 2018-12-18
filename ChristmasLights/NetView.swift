@@ -8,30 +8,23 @@
 
 import UIKit
 
-class NetView: UIView
+class NetView: UIView, PatternDelegate
 {
-    var net: Net?
-
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        net = Net()
-    }
-
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        net = Net()
-    }
+    var net: Net!
 
     override func layoutSubviews()
     {
-        net?.size = bounds.size
-        net?.radialLayout()
+        net.size = bounds.size
+        net.radialLayout()
     }
 
     override func draw(_ rect: CGRect)
     {
-        net?.draw()
+        net.draw()
+    }
+
+    func redraw()
+    {
+        setNeedsDisplay()
     }
 }

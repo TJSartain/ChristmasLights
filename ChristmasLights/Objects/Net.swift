@@ -15,7 +15,13 @@ class Net: NSObject
     var columns = 1
 //    let og = OrthoGraphics()
     var wrapAround = false
-    var lights = [[Bulb]]()
+    var bulbs = [[Bulb]]()
+
+    init(rows: Int, columns: Int)
+    {
+        self.rows = rows
+        self.columns = columns
+    }
     
     /// All the little light views are (re)created and positioned
     /// every time the view is laid out (including a rotation)
@@ -23,18 +29,14 @@ class Net: NSObject
 
     func draw()
     {
-        for row in 0..<lights.count
+        for row in 0..<bulbs.count
         {
-            let dimBulbs = lights[row].filter( { $0.isOn && $0.color == placeholderColor } )
-            let coloredBulbs = lights[row].filter( { $0.isOn && $0.color != placeholderColor } )
-            for bulb in dimBulbs
-            {
-                bulb.draw()
-            }
-            for bulb in coloredBulbs
-            {
-                bulb.draw()
-            }
+            // draw dim bulbs first ...
+            let dimBulbs = bulbs[row].filter( { $0.isOn && $0.color == placeholderColor } )
+            for bulb in dimBulbs { bulb.draw() }
+            // ... so colored bulbs will draw on top
+            let coloredBulbs = bulbs[row].filter( { $0.isOn && $0.color != placeholderColor } )
+            for bulb in coloredBulbs { bulb.draw() }
         }
     }
     
@@ -44,10 +46,10 @@ class Net: NSObject
         let v = self.size.height / CGFloat(rows)
         let size: CGFloat = sqrt(h*h + v*v) / 5 // "average" 
         let sweep = 2 * asin((self.size.width - h) / ((v - 1) * CGFloat(rows)) / 2)
-        lights = [[Bulb]]()
+        bulbs = [[Bulb]]()
         for row in 0..<rows
         {
-            var lightRow = [Bulb]()
+            var rowOfBulbs = [Bulb]()
             let radius = v * (CGFloat(row) + 0.5)
             for col in 0..<columns
             {
@@ -56,9 +58,9 @@ class Net: NSObject
                 let y = sin(angle) * radius
 
                 let bulb = Bulb(size: size, center: CGPoint(x: x, y: y))
-                lightRow.append(bulb)
+                rowOfBulbs.append(bulb)
             }
-            lights.append(lightRow)
+            bulbs.append(rowOfBulbs)
         }
     }
     
@@ -130,14 +132,10 @@ class Net: NSObject
     
     func frameIn(_ color: UIColor)
     {
-        for col in 0..<columns {
-            setColor(color: color, row: 0, column: col)
-            setColor(color: color, row: rows-1, column: col)
-        }
-        for row in 1..<rows-1 {
-            setColor(color: color, row: row, column: 0)
-            setColor(color: color, row: row, column: (wrapAround ? columns/2 : columns-1))
-        }
+        setRow(0, to: color)
+        setRow(rows-1, to: color)
+        setColumn(0, to: color)
+        setColumn(columns-1, to: color)
     }
     
     /// Turns all the lights off
@@ -158,19 +156,15 @@ class Net: NSObject
     
     func turnOffRow(_ row: Int)
     {
-        for col in 0..<columns {
-            setColor(color: .black, row: row, column: col)
-        }
+        setRow(row, to: .black)
     }
 
     func turnOffColumn(_ col: Int)
     {
-        for row in 0..<rows {
-            setColor(color: .black, row: row, column: col)
-        }
+        setColumn(col, to: .black)
     }
 
-    func turnOffBulb(_ loc: Location)
+    func turnOffLocation(_ loc: Location)
     {
         setColor(color: .black, row: loc.row, column: loc.column)
     }
@@ -193,9 +187,9 @@ class Net: NSObject
 
     func setColor(color: UIColor, row: Int, column: Int)
     {
-        if lights.count > row, lights[row].count > column
+        if bulbs.count > row, bulbs[row].count > column
         {
-            lights[row][column].color = color
+            bulbs[row][column].color = color
         }
     }
 

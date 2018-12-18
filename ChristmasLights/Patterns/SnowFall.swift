@@ -37,7 +37,7 @@ class SnowFall: Pattern
         }
         if snowFlakes.count == net.rows { // we're full
             for col in 0..<snowFlakes[net.rows-1].count { // turn off last row
-                net.turnOffBulb(snowFlakes[net.rows-1][col].1)
+                net.turnOffLocation(snowFlakes[net.rows-1][col].1)
             }
             snowFlakes.removeLast() // delete from local collection
         }
@@ -45,7 +45,7 @@ class SnowFall: Pattern
         {
             for col in 0..<snowFlakes[row].count
             {
-                net.turnOffBulb(snowFlakes[row][col].1) // turn off current row
+                net.turnOffLocation(snowFlakes[row][col].1) // turn off current row
                 snowFlakes[row][col].1.row = row + 1 // move flake to next row
                 if useColor {
                     net.setColor(color: colors[snowFlakes[row][col].0], loc: snowFlakes[row][col].1)
