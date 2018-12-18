@@ -15,7 +15,6 @@ struct Global {
 }
 
 var placeholderColor = rgb(31, 31, 31)
-//var net: Net!
 var patterns = [Pattern]()
 
 class ViewController: UIViewController, PatternDelegate
@@ -35,7 +34,7 @@ class ViewController: UIViewController, PatternDelegate
         netView.net?.columns = 11
         netView.backgroundColor = .black
 
-        patterns = Pattern.allPatterns(self, netView.net!)
+        patterns = allPatterns(netView.net!)
         currentPattern = patterns[0]
         currentPattern.start()
     }
@@ -46,6 +45,21 @@ class ViewController: UIViewController, PatternDelegate
 
     func redraw() {
         netView.setNeedsDisplay()
+    }
+
+    func allPatterns(_ net: Net) -> [Pattern] {
+        return [
+            RandomPattern("Random",       self, net),
+            ColorFade("Color Cycle",      self, net),
+            FatSwirlPattern("Fat Swirl",  self, net),
+            RowsPattern("Rows",           self, net),
+            ColumnsPattern("Columns",     self, net),
+            RazzleDazzle("Razzle Dazzle", self, net),
+            StarryNight("Starry Night",   self, net),
+            SnowFall("Snow Fall",         self, net),
+            Spiral("Spiral",              self, net),
+            SnakePattern("Snake",         self, net)
+        ]
     }
 }
 

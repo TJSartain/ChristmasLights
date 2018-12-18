@@ -12,7 +12,8 @@ class ColumnsPattern: Pattern
 {
     override func start()
     {
-        start(every: 0.1, with: [RadicalRed, RadicalRed, Emerald, RadicalRed, RadicalRed])
+        start(every: 0.1, with: UIColor.colorCycle(n: 24))
+//        start(every: 0.1, with: [RadicalRed, RadicalRed, Emerald, RadicalRed, RadicalRed])
     }
     
     override func start(every interval: TimeInterval, with info: Any?)
@@ -28,13 +29,10 @@ class ColumnsPattern: Pattern
     {
         for col in 0..<net.columns
         {
-            let color = colors[((col + currentCol) % net.columns) % colors.count]
-            for row in 0..<net.rows
-            {
-                net.setColor(color: color, row: row, column: col)
-            }
+            let color = colors[(col + currentCol) % colors.count]
+            net.setColumn(col, to: color)
         }
-        currentCol = (currentCol + 1) % net.columns
+        currentCol = (currentCol + 1) % colors.count
         super.draw(timer: timer)
     }
 }

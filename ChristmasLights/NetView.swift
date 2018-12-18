@@ -15,17 +15,18 @@ class NetView: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        net = Net(size: bounds.size)
+        net = Net()
     }
 
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        net = Net(size: bounds.size)
+        net = Net()
     }
 
     override func layoutSubviews()
     {
+        net?.size = bounds.size
         net?.radialLayout()
     }
 

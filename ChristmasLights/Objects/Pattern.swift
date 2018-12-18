@@ -53,19 +53,4 @@ class Pattern: NSObject
         colors = [UIColor]()
         Global.timer.invalidate()
     }
-
-    static func allPatterns(_ delegate: PatternDelegate, _ net: Net) -> [Pattern] {
-        return [
-            RandomPattern("Random", delegate, net),
-            ColorFade("Color Cycle", delegate, net),
-            FatSwirlPattern("Fat Swirl", delegate, net),
-            RowsPattern("Rows", delegate, net),
-            ColumnsPattern("Columns", delegate, net),
-            RazzleDazzle("Razzle Dazzle", delegate, net),
-            StarryNight("Starry Night", delegate, net),
-            SnowFall("Snow Fall", delegate, net),
-            Spiral("Spiral", delegate, net),
-            SnakePattern("Snake", delegate, net)
-        ]
-    }
 }

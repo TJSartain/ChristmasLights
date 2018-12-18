@@ -22,7 +22,7 @@ class SnowFall: Pattern
     {
         net.blackOut()
         snowFlakes = [[(Int, Location)]]()
-        useColor = Int.random(in: 0 ..< 2) < 1
+        useColor = Int.random(in: 0 ..< 4) < 1
         if useColor {
             colors = UIColor.colorCycle(n: 144)
         }
@@ -32,37 +32,37 @@ class SnowFall: Pattern
     override func draw(timer: Timer)
     {
         var cols = Set<Int>()
-        while cols.count < Int.random(in: 0...2) {
+        while cols.count < Int.random(in: 0...2) { // 0, 1, or 2 new flakes
             cols.insert(Int.random(in: 0..<net.columns))
         }
-        if snowFlakes.count == net.rows {
-            for col in 0..<snowFlakes[net.rows-1].count {
+        if snowFlakes.count == net.rows { // we're full
+            for col in 0..<snowFlakes[net.rows-1].count { // turn off last row
                 net.turnOffBulb(snowFlakes[net.rows-1][col].1)
             }
-            snowFlakes.removeLast()
+            snowFlakes.removeLast() // delete from local collection
         }
         for row in 0..<snowFlakes.count
         {
             for col in 0..<snowFlakes[row].count
             {
-                net.turnOffBulb(snowFlakes[row][col].1)
-                snowFlakes[row][col].1.row = row + 1
+                net.turnOffBulb(snowFlakes[row][col].1) // turn off current row
+                snowFlakes[row][col].1.row = row + 1 // move flake to next row
                 if useColor {
                     net.setColor(color: colors[snowFlakes[row][col].0], loc: snowFlakes[row][col].1)
                 } else {
-                    net.setColor(color: .white, loc: snowFlakes[row][col].1)
+                    net.setColor(color: .white, loc: snowFlakes[row][col].1) // turn back on
                 }
             }
         }
-        snowFlakes.insert([(Int, Location)](), at: 0)
+        snowFlakes.insert([(Int, Location)](), at: 0) // new row 0 in local collection
         for col in cols {
             if useColor {
                 let c = Int.random(in: 0..<colors.count)
                 snowFlakes[0].append((c, (0, col)))
                 net.setColor(color: colors[c], loc: (0, col))
             } else {
-                snowFlakes[0].append((0, (0, col)))
-                net.setColor(color: .white, loc: (0, col))
+                snowFlakes[0].append((0, (0, col))) // add to local collection
+                net.setColor(color: .white, loc: (0, col)) // turn bulb on
             }
         }
         super.draw(timer: timer)

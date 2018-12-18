@@ -30,15 +30,17 @@ class Spiral: Pattern
     {
         for row in 0..<net.rows
         {
-            let color = colors[(currentRow - row + net.rows) % net.rows]
+            // there was one to the right, turn it off
             net.setColor(color: placeholderColor,
                                row: row,
-                               column: (currentCol + 1 + row) % net.columns)
+                               column: (currentCol + row + 1) % net.columns)
+            // new color from the cycle
+            let color = colors[(currentRow - row + net.rows) % net.rows]
             net.setColor(color: color,
                                row: row,
                                column: (currentCol + row) % net.columns)
         }
-        currentRow = (currentRow + 1) % net.rows
+        currentRow = (currentRow + 1) % net.rows // don't ask
         currentCol = (currentCol - 1 + net.columns) % net.columns
         super.draw(timer: timer)
     }

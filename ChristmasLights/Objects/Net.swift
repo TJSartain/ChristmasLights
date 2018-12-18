@@ -10,7 +10,7 @@ import UIKit
 
 class Net: NSObject
 {
-    var size: CGSize
+    var size = CGSize(width: 0, height: 0)
     var rows = 1
     var columns = 1
 //    let og = OrthoGraphics()
@@ -20,27 +20,9 @@ class Net: NSObject
     /// All the little light views are (re)created and positioned
     /// every time the view is laid out (including a rotation)
     /// No math has to be done when drawing the light
-    
-//    override func layoutSubviews()
-//    {
-//        radialLayout()
-//    }
 
-    init(size: CGSize) {
-        self.size = size
-    }
-
-     func draw()
+    func draw()
     {
-//        for (_, row) in lights.enumerated()
-//        {
-//            let dimBulbs = row.enumerated().filter( { $0.color == placeholderColor } )
-//            for (_, bulb) in row.enumerated()
-//            {
-//                bulb.draw()
-//            }
-//        }
-
         for row in 0..<lights.count
         {
             let dimBulbs = lights[row].filter( { $0.isOn && $0.color == placeholderColor } )
@@ -75,14 +57,6 @@ class Net: NSObject
 
                 let bulb = Bulb(size: size, center: CGPoint(x: x, y: y))
                 lightRow.append(bulb)
-
-//                let bulb = Bulb(frame: CGRect(x: x - h / 2,
-//                                              y: y - v / 2,
-//                                              width: h,
-//                                              height: v))
-//                bulb.size = size
-//                bulb.tag = row * 1000 + col + 1
-//                addSubview(bulb)
             }
             lights.append(lightRow)
         }
@@ -223,48 +197,10 @@ class Net: NSObject
         {
             lights[row][column].color = color
         }
-//        if let bulb = viewWithTag(row * 1000 + column + 1) as? Bulb {
-//            bulb.color = color
-//        }
     }
 
     func setColor(color: UIColor, loc: Location)
     {
         setColor(color: color, row: loc.row, column: loc.column)
     }
-
-//    override init(frame: CGRect)
-//    {
-//        super.init(frame: frame)
-//        backgroundColor = .clear
-//    }
-//
-//    required init?(coder aDecoder: NSCoder)
-//    {
-//        super.init(coder: aDecoder)
-//        backgroundColor = .clear
-//    }
-//
-//    @IBAction func changeToEye(_ sender: UISlider) {
-//        print("Plane To Eye: \(sender.value)")
-//        og.planeToEye = CGFloat(sender.value)
-//        setNeedsLayout()
-//    }
-//    @IBAction func changeToObj(_ sender: UISlider) {
-//        print("Plane To Obj: \(sender.value)")
-//        og.planeToObj = CGFloat(sender.value)
-//        setNeedsLayout()
-//    }
-//    @IBAction func changeAzimuth(_ sender: UISlider) {
-//        print("Azimuth: \(sender.value)")
-//        og.azimuth = CGFloat(sender.value)
-//        og.projCoefficients()
-//        setNeedsLayout()
-//    }
-//    @IBAction func changeElevation(_ sender: UISlider) {
-//        print("Elevation: \(sender.value)")
-//        og.elevation = CGFloat(sender.value)
-//        og.projCoefficients()
-//        setNeedsLayout()
-//    }
 }
