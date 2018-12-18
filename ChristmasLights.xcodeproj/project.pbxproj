@@ -23,6 +23,7 @@
 		002EA1A621C8286C00BAA3B3 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */; };
 		002EA1A821C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */; };
 		002EA1AA21C8600400BAA3B3 /* SnowFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1A921C8600400BAA3B3 /* SnowFall.swift */; };
+		002EA1AC21C9804D00BAA3B3 /* NetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EA1AB21C9804D00BAA3B3 /* NetView.swift */; };
 		004B2EA021B496F5005EAF9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2E9F21B496F5005EAF9D /* AppDelegate.swift */; };
 		004B2EA221B496F5005EAF9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004B2EA121B496F5005EAF9D /* ViewController.swift */; };
 		004B2EA521B496F5005EAF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004B2EA321B496F5005EAF9D /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		002EA1A121C8286C00BAA3B3 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		002EA1A321C8286C00BAA3B3 /* SidePanelViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewControllerDelegate.swift; sourceTree = "<group>"; };
 		002EA1A921C8600400BAA3B3 /* SnowFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowFall.swift; sourceTree = "<group>"; };
+		002EA1AB21C9804D00BAA3B3 /* NetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetView.swift; sourceTree = "<group>"; };
 		004B2E9C21B496F5005EAF9D /* ChristmasLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChristmasLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004B2E9F21B496F5005EAF9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004B2EA121B496F5005EAF9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 		002EA19721C44D0B00BAA3B3 /* Patterns */ = {
 			isa = PBXGroup;
 			children = (
-				002EA19821C460F100BAA3B3 /* Pattern.swift */,
 				002EA18D21C44CA600BAA3B3 /* DoSnake.swift */,
 				001CA0B321C58DE60063CE04 /* ColorFade.swift */,
 				002EA18F21C44CB100BAA3B3 /* FatSwirl.swift */,
@@ -108,6 +109,19 @@
 			path = SlideOutMenu;
 			sourceTree = "<group>";
 		};
+		002EA1AD21C9A28C00BAA3B3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				004B2EC121B49D0B005EAF9D /* Net.swift */,
+				004B2EC721BA05EB005EAF9D /* Bulb.swift */,
+				00DE77DC21BB3193004354C3 /* Snake.swift */,
+				00DE77DA21BB2630004354C3 /* Colors.swift */,
+				001CA0B521C58E300063CE04 /* Cycle.swift */,
+				002EA19821C460F100BAA3B3 /* Pattern.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		004B2E9321B496F5005EAF9D = {
 			isa = PBXGroup;
 			children = (
@@ -129,15 +143,12 @@
 			children = (
 				004B2E9F21B496F5005EAF9D /* AppDelegate.swift */,
 				004B2EA121B496F5005EAF9D /* ViewController.swift */,
-				004B2EC121B49D0B005EAF9D /* Net.swift */,
-				004B2EC721BA05EB005EAF9D /* Bulb.swift */,
-				00DE77DC21BB3193004354C3 /* Snake.swift */,
-				00DE77DA21BB2630004354C3 /* Colors.swift */,
-				001CA0B521C58E300063CE04 /* Cycle.swift */,
-				004B2EC521B4A2A3005EAF9D /* Drawing.swift */,
-				004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */,
+				002EA1AB21C9804D00BAA3B3 /* NetView.swift */,
+				002EA1AD21C9A28C00BAA3B3 /* Objects */,
 				002EA19721C44D0B00BAA3B3 /* Patterns */,
 				002EA19E21C8284300BAA3B3 /* SlideOutMenu */,
+				004B2EC521B4A2A3005EAF9D /* Drawing.swift */,
+				004B2EEB21BF44F6005EAF9D /* OrthoGraphics.swift */,
 				004B2EA321B496F5005EAF9D /* Main.storyboard */,
 				004B2EA621B496F6005EAF9D /* Assets.xcassets */,
 				004B2EA821B496F6005EAF9D /* LaunchScreen.storyboard */,
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DE77DB21BB2630004354C3 /* Colors.swift in Sources */,
+				002EA1AC21C9804D00BAA3B3 /* NetView.swift in Sources */,
 				002EA19B21C8007000BAA3B3 /* StarryNight.swift in Sources */,
 				002EA1A421C8286C00BAA3B3 /* ContainerViewController.swift in Sources */,
 				002EA19421C44CDC00BAA3B3 /* DoRandom.swift in Sources */,

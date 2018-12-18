@@ -15,12 +15,12 @@ struct Global {
 }
 
 var placeholderColor = rgb(31, 31, 31)
-var net: Net!
+//var net: Net!
+var patterns = [Pattern]()
 
-class ViewController: UIViewController
+class ViewController: UIViewController, PatternDelegate
 {
-    @IBOutlet weak var lightsNet: Net!
-    var patterns = [Pattern]()
+    @IBOutlet weak var netView: NetView!
     var currentPattern: Pattern!
 
     var delegate: CenterViewControllerDelegate?
@@ -31,17 +31,21 @@ class ViewController: UIViewController
 
         Global.timer = Timer()
 
-        net = lightsNet
-        net.rows = 35
-        net.columns = 11
-        net.backgroundColor = .black
+        netView.net?.rows = 35
+        netView.net?.columns = 11
+        netView.backgroundColor = .black
 
-        currentPattern = Pattern.allPatterns()[0]
+        patterns = Pattern.allPatterns(self, netView.net!)
+        currentPattern = patterns[0]
         currentPattern.start()
     }
 
     @IBAction func patternsTapped(_ sender: Any) {
         delegate?.toggleLeftPanel?()
+    }
+
+    func redraw() {
+        netView.setNeedsDisplay()
     }
 }
 

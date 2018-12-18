@@ -30,5 +30,6 @@ class ColorFade: Pattern
     {
         net.oneColor(colors[index])
         index = (index + 1) % colors.count
+        super.draw(timer: timer)
     }
 }

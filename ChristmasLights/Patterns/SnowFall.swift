@@ -65,5 +65,6 @@ class SnowFall: Pattern
                 net.setColor(color: .white, loc: (0, col))
             }
         }
+        super.draw(timer: timer)
     }
 }

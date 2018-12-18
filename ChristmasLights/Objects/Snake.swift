@@ -20,6 +20,12 @@ class Snake: NSObject
 {
     var segments = [SnakeLight]()
     var heading: Heading = (0, 0)
+    var net: Net
+
+    init(_ net: Net)
+    {
+        self.net = net
+    }
 
     /// Determines if there are any viable spots to move to
     /// If so, the head is moved followed by the rest

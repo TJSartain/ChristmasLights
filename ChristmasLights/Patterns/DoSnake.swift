@@ -10,11 +10,11 @@ import UIKit
 
 class SnakePattern: Pattern
 {
-    var snake = Snake()
+    var snake: Snake!
     
     override func start()
     {
-        snake = Snake()
+        snake = Snake(net)
         snake.segments = [SnakeLight(color: RadicalRed, location: (14, 9)),
                           SnakeLight(color: Emerald,    location: (14, 8)),
                           SnakeLight(color: Emerald,    location: (14, 7)),
@@ -63,6 +63,7 @@ class SnakePattern: Pattern
             net.setColor(color: net.onFrame((lastRow, lastColumn)) ? .darkGray : placeholderColor,
                                 row: lastRow,
                                 column: lastColumn)
+            super.draw(timer: timer)
         } else {
             stop()
             start() // start over

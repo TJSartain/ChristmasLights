@@ -8,23 +8,16 @@
 
 import UIKit
 
-class Bulb: UIView
+class Bulb: NSObject
 {
-    /// No drawing is done if the light is off
-    
-    var isOn = false
-    
-    /// If drawn, lower opacity when in the back
-    
-    var isInBack = false
-    
-    /// When the color is changed, a redraw is initiated
-    /// If the color is black, the light is "turned off"
-    
+    var isOn = false // don't draw if the light is off
+
+    var isInBack = false // if in 3D, lower opacity when in the back
+
     var color = UIColor.white {
         didSet {
-            isOn = (color != .black)
-            setNeedsDisplay()
+            isOn = (color != .black) // turn off when color is black
+//            setNeedsDisplay() // redraw when the color is changed
         }
     }
     
@@ -43,14 +36,29 @@ class Bulb: UIView
     var size: CGFloat = 1 {
         willSet {
             if size != 1 {
-                shape.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
+//                shape.apply(CGAffineTransform(translationX: -frame.width/2, y: -frame.height/2))
                 shape.apply(CGAffineTransform(scaleX: 1/size, y: 1/size))
             }
         }
         didSet {
             shape.apply(CGAffineTransform(scaleX: size, y: size))
-            shape.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
+//            shape.apply(CGAffineTransform(translationX: frame.width/2, y: frame.height/2))
         }
+    }
+
+    init(size: CGFloat, center: CGPoint)
+    {
+        shape = UIBezierPath(ovalIn: CGRect(x: center.x - size/2,
+                                            y: center.y - size/2,
+                                            width: size,
+                                            height: size))
+    }
+
+    func sizeAndPlace(at pt: CGPoint, size: CGFloat)
+    {
+        shape = UIBezierPath(ovalIn: CGRect(x: -0.5, y: -0.5, width: 1, height: 1))
+        shape.apply(CGAffineTransform(scaleX: size, y: size))
+        shape.apply(CGAffineTransform(translationX: pt.x, y: pt.y))
     }
     
     /// Only draws anything if the light is turned on
@@ -60,7 +68,7 @@ class Bulb: UIView
     ///
     /// - Parameter rect: light to be centered within
     
-    override func draw(_ rect: CGRect)
+    func draw()
     {
         if isOn
         {
@@ -75,15 +83,15 @@ class Bulb: UIView
         }
     }
     
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        backgroundColor = .clear
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        backgroundColor = .clear
-    }
+//    override init(frame: CGRect)
+//    {
+//        super.init(frame: frame)
+//        backgroundColor = .clear
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder)
+//    {
+//        super.init(coder: aDecoder)
+//        backgroundColor = .clear
+//    }
 }

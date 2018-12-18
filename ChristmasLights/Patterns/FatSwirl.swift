@@ -35,5 +35,6 @@ class FatSwirlPattern: Pattern
             }
         }
         currentRow = (currentRow + 1) % net.rows
+        super.draw(timer: timer)
     }
 }

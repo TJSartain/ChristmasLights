@@ -111,7 +111,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     guard leftViewController == nil else { return }
     
     if let vc = UIStoryboard.leftViewController() {
-      vc.patterns = Pattern.allPatterns()
+      vc.patterns = patterns
       addChildSidePanelController(vc)
       leftViewController = vc
     }
@@ -131,7 +131,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     guard rightViewController == nil else { return }
     
     if let vc = UIStoryboard.rightViewController() {
-      vc.patterns = Pattern.allPatterns()
+      vc.patterns = patterns
       addChildSidePanelController(vc)
       rightViewController = vc
     }

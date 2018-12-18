@@ -85,5 +85,6 @@ class RazzleDazzle: Pattern
                 net.setRow(net.rows - currentRow, to: rowColor)
             }
         }
+        super.draw(timer: timer)
     }
 }

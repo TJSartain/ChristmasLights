@@ -35,5 +35,6 @@ class ColumnsPattern: Pattern
             }
         }
         currentCol = (currentCol + 1) % net.columns
+        super.draw(timer: timer)
     }
 }

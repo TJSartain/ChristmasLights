@@ -38,5 +38,6 @@ class StarryNight: Pattern
         let y = Int.random(in: 0..<net.rows)
         starField[i] = (y, x)
         net.setColor(color: .white, loc: starField[i])
+        super.draw(timer: timer)
     }
 }

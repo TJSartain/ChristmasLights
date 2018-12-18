@@ -34,5 +34,6 @@ class RandomPattern: Pattern
                 net.setColor(color: color, row: row, column: col)
             }
         }
+        super.draw(timer: timer)
     }
 }

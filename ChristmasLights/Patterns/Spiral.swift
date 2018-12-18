@@ -40,5 +40,6 @@ class Spiral: Pattern
         }
         currentRow = (currentRow + 1) % net.rows
         currentCol = (currentCol - 1 + net.columns) % net.columns
+        super.draw(timer: timer)
     }
 }
